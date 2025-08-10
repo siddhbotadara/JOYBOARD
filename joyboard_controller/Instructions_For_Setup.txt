@@ -1,0 +1,121 @@
+------------------------------------------------------------------------------------------------------------------------
+🛠️  ARDUINO CONTROLLER SETUP GUIDE — JOYBOARD
+------------------------------------------------------------------------------------------------------------------------
+
+This file contains all the information required to connect and use your Arduino-based wireless controller with JOYBOARD.
+
+Please follow the steps below carefully to ensure smooth communication between the game and your hardware controller.
+
+------------------------------------------------------------------------------------------------------------------------
+🎮 SETTING UP YOUR ARDUINO CONTROLLER (TRANSMITTER)
+------------------------------------------------------------------------------------------------------------------------
+
+You can build a simple wireless transmitter using an Arduino Nano or Uno board.
+
+📸 Refer to the image file `Transmitter_Sketch_Image.png` for the circuit diagram (check arduino_files folder). 
+It clearly shows how to connect all components. You can use a breadboard — allowing you to avoid complex soldering.
+
+🔧 Required Components (Minimum):
+- 2x Joysticks
+- 2x Push Buttons
+- 1x Toggle Switch (ON-OFF-ON)
+- 1x Potentiometer
+- 1x NRF24L01 Module (with or without antenna — both supported)
+- 1x NRF24L01 Adapter (Recommended)
+
+⚠️ **Important Note on NRF24L01 Power Supply:**
+- The NRF24L01 module requires a stable 3.3V supply.
+- We strongly recommend using an **NRF24L01 adapter** module for this purpose.
+- If you don’t have an adapter, use the following method to safely power the module:
+
+ >> Arduino 5V → Voltage Divider → NRF VCC (3.3V)
+ >> Arduino GND → NRF GND
+ >> Add a 10µF capacitor between VCC and GND near the NRF module for stability.
+ >> Voltage Divider: Use two resistors (e.g., 1.8kΩ and 3.3kΩ) to step down 5V to ~3.3V
+
+📥 Connection Summary:
+- Connect all components exactly as shown in the provided image.
+- Double-check wiring for stability and proper pin alignment.
+
+------------------------------------------------------------------------------------------------------------------------
+📡 SETTING UP THE RECEIVER
+------------------------------------------------------------------------------------------------------------------------
+
+Use another Arduino Nano or Uno as your receiver. Connect only the NRF24L01 module to the following pins:
+
+| NRF24L01 Pin | Arduino Pin |
+|--------------|--------------|
+| CE           | D9           |
+| CSN          | D10          |
+| MOSI         | D11          |
+| MISO         | D12          |
+| SCK          | D13          |
+
+No other components are needed on the receiver side.
+
+------------------------------------------------------------------------------------------------------------------------
+💾 UPLOADING THE CODE
+------------------------------------------------------------------------------------------------------------------------
+
+1. Install the official Arduino IDE from the Arduino website - https://www.arduino.cc/en/software
+2. Open the transmitter and receiver `.ino` files located in the `arduino_files` folder.
+3. Select the correct board (Uno/Nano), COM port, and set the **baudrate to 9600**.
+4. Upload the **transmitter** code to your controller board.
+5. Upload the **receiver** code to your receiver board.
+6. Open the Serial Monitor from the Arduino IDE (at 9600 baud) and confirm if data is being received correctly.
+7. Once confirmed, **close the Arduino IDE completely**. 
+8. Open the arduino_setup.txt file located in the same folder and update the port and baud rate used.
+9. Close the file and launch the game.
+
+------------------------------------------------------------------------------------------------------------------------
+📥 INSTALLING REQUIRED LIBRARIES IN ARDUINO IDE
+------------------------------------------------------------------------------------------------------------------------
+
+The following libraries are **required**:
+
+```cpp
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+>> To install them - follow the steps below:
+
+ 1. Open Arduino IDE.
+ 2. Go to Sketch > Include Library > Manage Libraries...
+ 3. Search for RF24 by TMRh20.
+ 4. Click Install on the RF24 library.
+ 5. SPI.h is built-in and does not need to be installed separately.
+
+------------------------------------------------------------------------------------------------------------------------
+✅ THAT'S IT — YOU'RE READY TO PLAY!
+------------------------------------------------------------------------------------------------------------------------
+
+All features will work even with the minimal setup. You're free to experiment or expand your controller later!
+
+Enjoy using JOYBOARD with your custom wireless controller!
+
+------------------------------------------------------------------------------------------------------------------------
+🔁 TROUBLESHOOTING
+------------------------------------------------------------------------------------------------------------------------
+
+- If your controller is not responding:
+  • Double-check the COM port (e.g., COM3, COM9, etc.)
+  • Ensure the baudrate matches what’s used in your Arduino code
+  • Make sure no other application is using the same COM port
+  • Restart the game *after* plugging in the Arduino
+
+- If communication randomly stops:
+  • Use better quality jumper wires
+  • Try using a shorter USB cable
+  • Avoid connecting through USB hubs
+  • Restart both the Arduino and the game
+
+------------------------------------------------------------------------------------------------------------------------
+📩 NEED HELP?
+------------------------------------------------------------------------------------------------------------------------
+  
+Contact us via the contact form or email at teamjoyboard@gmail.com.
+
+Thank you for choosing JOYBOARD!
+
+========================================================================================================================
