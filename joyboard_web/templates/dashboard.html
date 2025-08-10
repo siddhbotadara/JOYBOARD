@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<style>
+  /* Animation for messages */
+  @keyframes fadeOutMoveUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+
+  .auto-fade-message {
+    animation: fadeOutMoveUp 5s forwards;
+  }
+
+</style>
+
+{% if messages %}
+  <div class="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 space-y-2 max-w-lg w-full px-4">
+    {% for message in messages %}
+      <div
+        class="auto-fade-message rounded-md px-6 py-3 text-white text-center font-semibold shadow-lg
+          {% if message.tags == 'error' %} bg-red-600 hover:bg-red-700
+          {% elif message.tags == 'success' %} bg-green-600 hover:bg-green-700
+          {% else %} bg-gray-700 hover:bg-gray-800
+          {% endif %}
+          transition-colors duration-300 cursor-default select-text"
+      >
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<section class="relative min-h-screen bg-[#0f172a] text-[#E5E5E5] px-6 py-12 flex flex-col items-center overflow-hidden">
+
+  <!-- Enhanced Background Glow -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#000000] z-0"></div>
+
+  <!-- Large soft gold glow -->
+  <div class="absolute -top-40 -right-40 w-[70vw] h-[70vw] bg-[#d4af37]/15 blur-[220px] rounded-full z-0 animate-pulseSlow"></div>
+
+  <!-- Smaller sharper warm orange glow -->
+  <div class="absolute -top-20 -right-20 w-[40vw] h-[40vw] bg-[#ff9e1b]/25 blur-[120px] rounded-full z-0 animate-pulseFaster"></div>
+
+  <!-- Subtle cool blue glow for contrast -->
+  <div class="absolute bottom-[-10vw] left-[-15vw] w-[35vw] h-[35vw] bg-[#0ea5e9]/20 blur-[140px] rounded-full z-0 animate-pulseSlow"></div>
+
+  <div class="relative z-10 w-full max-w-6xl space-y-10">
+
+    <!-- Heading -->
+    <h1 class="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-wide mb-4 motion-safe:animate-fadeInDown">
+      <span class="text-[#ffbf00]">The Journey Continues,</span>
+      <span class="text-white drop-shadow-[0_0_6px_#d4af37]">{{ request.user.username|capfirst }}</span>
+    </h1>
+
+    <!-- Subheading -->
+    <p class="text-lg md:text-xl text-gray-300 font-light motion-safe:animate-fadeInUp font-section">
+      — Welcome Back.
+    </p>
+    <br><br>
+
+    <!-- Stats -->
+    <div
+      class="bg-[#111827] rounded-3xl p-8 shadow-lg
+             transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_#d4af37]
+             focus-within:ring-4 focus-within:ring-[#d4af37] outline-none"
+      tabindex="0"
+      role="region"
+      aria-label="Performance Summary"
+    >
+      <h2 class="text-2xl font-semibold text-[#ffbf00] border-b border-[#1f2937] pb-4 mb-6 font-section">
+        Performance Summary
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center font-body">
+        <div class="bg-[#1e293b] rounded-xl p-6 shadow-inner hover:bg-[#273449] transition-colors duration-300 focus-within:ring-2 focus-within:ring-[#d4af37] outline-none" tabindex="0">
+          <p class="text-3xl font-bold text-white">#{{ current_rank }}</p>
+          <p class="text-gray-400 mt-1">Current Rank</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-xl p-6 shadow-inner hover:bg-[#273449] transition-colors duration-300 focus-within:ring-2 focus-within:ring-[#d4af37] outline-none" tabindex="0">
+          <p class="text-3xl font-bold text-[#ffbf00]">#{{ highest_rank }}</p>
+          <p class="text-gray-400 mt-1">Highest Rank Ever</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-xl p-6 shadow-inner hover:bg-[#273449] transition-colors duration-300 focus-within:ring-2 focus-within:ring-[#d4af37] outline-none" tabindex="0">
+          <p class="text-3xl font-bold text-[#38bdf8]">{{ games_played }}</p>
+          <p class="text-gray-400 mt-1">Games Played</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-xl p-6 shadow-inner hover:bg-[#273449] transition-colors duration-300 focus-within:ring-2 focus-within:ring-[#d4af37] outline-none" tabindex="0">
+          <p class="text-3xl font-bold text-[#34d399]">Lvl {{ highest_level }}</p>
+          <p class="text-gray-400 mt-1">Highest Level</p>
+        </div>
+        <div
+          class="bg-[#1e293b] rounded-xl p-6 shadow-inner flex flex-col items-center justify-center
+            {% if fastest_time_locked %}
+              cursor-not-allowed opacity-80 hover:opacity-100 hover:bg-[#2c3e50] transition duration-300 ring-4 ring-yellow-400 ring-opacity-60 animate-pulse
+            {% else %}
+              hover:bg-[#273449] transition duration-300 cursor-auto opacity-100
+            {% endif %}"
+          tabindex="0"
+          {% if fastest_time_locked %}
+            title="Complete Level 5 to unlock your Fastest Time"
+          {% endif %}
+        >
+          {% if fastest_time_locked %}
+            <p class="text-yellow-400 font-extrabold text-xl text-center select-none">
+              Reach <span class="underline decoration-yellow-300">Level 5</span> to Unlock!
+            </p>
+            <p class="text-gray-400 uppercase tracking-wide mt-2 select-none">Fastest Time</p>
+          {% else %}
+            <p class="text-3xl font-bold text-[#f97316] select-text">{{ fastest_time }}s</p>
+            <p class="text-gray-400 mt-1 select-none">Fastest Time</p>
+          {% endif %}
+        </div>
+        <div class="bg-[#1e293b] rounded-xl p-6 shadow-inner hover:bg-[#273449] transition-colors duration-300 focus-within:ring-2 focus-within:ring-[#d4af37] outline-none" tabindex="0">
+          <p class="text-3xl font-bold text-[#a78bfa]">{{ average_time }}s</p>
+          <p class="text-gray-400 mt-1">Avg Time / Level</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="bg-[#111827] rounded-3xl p-8 shadow-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_#d4af37] focus-within:ring-4 focus-within:ring-[#d4af37] outline-none" tabindex="0" role="region" aria-label="Account and Profile Information">
+      <h2 class="text-2xl font-semibold text-[#ffbf00] border-b border-[#1f2937] pb-4 mb-6 font-section">
+        Account & Profile
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Static Info -->
+        <div class="space-y-3 text-gray-300 font-body">
+          <p><span class="text-[#ffbf00] font-semibold">Username:</span> {{ request.user.username }}</p>
+          <p><span class="text-[#ffbf00] font-semibold">Email:</span> {{ request.user.email }}</p>
+          <p><span class="text-[#ffbf00] font-semibold">Joined:</span> {{ request.user.date_joined|date:"M d, Y" }}</p>
+          <p><span class="text-[#ffbf00] font-semibold">Bio:</span> {{ user_profile.description|default:"No description added yet." }}</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="space-y-4 font-button">
+          <a href="{% url 'changepassword' %}" class="w-full block bg-[#ff9e1b] text-[#0f172a] hover:bg-[#fca311] hover:brightness-110 font-bold py-2 rounded-lg text-center transition-colors duration-300 focus:outline-none focus:ring-4">
+            Change Password
+          </a>
+          <a href="{% url 'set_description' %}" class="w-full block bg-[#14b8a6] text-[#0f172a] hover:bg-[#0d8076] hover:brightness-110 font-bold py-2 rounded-lg text-center transition-colors duration-300 focus:outline-none focus:ring-4">
+            Set Description
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

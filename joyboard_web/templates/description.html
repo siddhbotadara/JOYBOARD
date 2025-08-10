@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Set Description{% endblock %}
+{% block content %}
+
+<div class="min-h-screen flex items-center justify-center bg-[#0F172A] px-4 py-12">
+  <div class="bg-[#1E293B] rounded-2xl shadow-xl max-w-lg w-full p-8
+              transition-transform duration-300 ease-in-out hover:scale-[1.015]
+              focus-within:ring-2 focus-within:ring-[#FCA311] outline-none"
+       tabindex="0"
+  >
+    <h2 class="text-3xl text-center font-bold text-[#FCA311] mb-6 drop-shadow-md font-heading">
+      Set Your Description
+    </h2>
+
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+      <textarea
+        name="description"
+        rows="5"
+        placeholder="Add a brief description about yourself — this will appear on the leaderboard."
+        class="w-full p-4 rounded-md bg-[#334155] text-white placeholder-gray-400
+               focus:ring-2 focus:ring-[#FCA311] focus:bg-[#475569]
+               outline-none resize-none transition duration-300 ease-in-out font-body"
+      >{{ user_profile.description|default_if_none:"" }}</textarea>
+
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-r from-[#FCA311] to-yellow-400
+               hover:from-yellow-400 hover:to-[#FCA311]
+               text-[#0F172A] font-bold py-2 rounded-lg shadow-md
+               transition duration-300 ease-in-out transform hover:scale-105
+               focus:outline-none focus:ring-4 focus:ring-yellow-300 font-button"
+      >
+        Save Description
+      </button>
+    </form>
+
+    {% if messages %}
+      <div class="mt-4 animate-fadeIn space-y-2">
+        {% for message in messages %}
+          <p class="text-center font-medium py-2 rounded-md
+            {% if message.tags == 'success' %} text-green-400
+            {% elif message.tags == 'error' %} text-red-400
+            {% else %} text-white {% endif %}">
+            {{ message }}
+          </p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+</style>
+
+{% endblock %}

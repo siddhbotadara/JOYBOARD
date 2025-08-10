@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="w-full">
+  <div class="w-full max-h-screen overflow-hidden shadow-lg">
+
+    <ul class="flex w-full max-h-screen aspect-[3/2] transition-all duration-5000 ease-in-out" id="slider">
+      <li class="w-full flex-shrink-0 opacity-100 transition-opacity duration-5000 ease-in-out">
+        <img src="{% static 'Images For Website/bg_2.png' %}" alt = "Game Images" class="w-full h-full object-cover">
+      </li>
+      <li class="w-full flex-shrink-0 opacity-100 transition-opacity duration-5000 ease-in-out">
+        <img src="{% static 'Images For Website/bg_3.png' %}" alt = "Game Images" class="w-full h-full object-cover">
+      </li>
+      <li class="w-full flex-shrink-0 opacity-100 transition-opacity duration-5000 ease-in-out">
+        <img src="{% static 'Images For Website/bg_5.png' %}" alt = "Game Images" class="w-full h-full object-cover">
+      </li>
+      <li class="w-full flex-shrink-0 opacity-100 transition-opacity duration-5000 ease-in-out">
+        <img src="{% static 'Images For Website/bg_6.png' %}" alt = "Game Images" class="w-full h-full object-cover">
+      </li>
+      <li class="w-full flex-shrink-0 opacity-100 transition-opacity duration-5000 ease-in-out">
+        <img src="{% static 'Images For Website/bg_4.png' %}" alt = "Game Images" class="w-full h-full object-cover">
+      </li>    
+    </ul>
+
+    <!-- Previous Button -->
+    <button id="prevbtn"
+      class="items-center text-4xl px-4 py-4 absolute top-1/2 left-2 -translate-y-1/2 bg-[#E5E5E5] hover:bg-white text-black opacity-30 hover:opacity-100 rounded-full shadow-lg transition duration-300 ease-in-out">
+      &#x276E; 
+    </button>
+
+    <!-- Next Button -->
+    <button id="nextbtn"
+      class="items-center text-4xl px-4 py-4 absolute top-1/2 right-2 -translate-y-1/2 bg-[#E5E5E5] hover:bg-white text-black opacity-30 hover:opacity-100 rounded-full shadow-lg transition duration-300 ease-in-out">
+      &#x276F;
+    </button>
+
+  </div>
+</section>
+{% endblock %}

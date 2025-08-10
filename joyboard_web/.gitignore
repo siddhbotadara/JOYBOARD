@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+.env
+*.log
+
+# Node
+node_modules/
+
+# Django static
+staticfiles/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+
+# Ignore all migration files in accounts app
+accounts/migrations/*.py
+
+# But NOT the __init__.py file
+!accounts/migrations/__init__.py

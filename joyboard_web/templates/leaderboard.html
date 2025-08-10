@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard{% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex flex-col items-center px-6 py-14 text-white font-sans">
+  
+  <h1 class="text-5xl font-extrabold mb-14 text-center tracking-tight text-[#FCA311] drop-shadow-[0_2px_6px_rgba(252,163,17,0.8)] select-none font-heading">
+    🏆 Game Leaderboard
+  </h1>
+
+  <div class="w-full max-w-7xl overflow-x-auto rounded-3xl bg-white/10 backdrop-blur-md shadow-lg shadow-[#0EA5E9]/40 border border-[#0EA5E9]/30 font-body">
+    <table class="min-w-full table-auto text-left text-sm md:text-base">
+      <thead class="bg-[#0F172A]/90 text-[#E5E5E5] uppercase text-md tracking-widest font-bold select-none">
+        <tr>
+          <th class="px-7 py-5 font-section">Rank</th>
+          <th class="px-7 py-5 font-section">Player</th>
+          <th class="px-7 py-5 font-section">Time</th>
+          <th class="px-7 py-5 font-section">Level Completed</th>
+          <th class="px-7 py-5 font-section">Input</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-[#334155]/70">
+
+        {% for player in leaderboard %}
+        <tr class="relative transition-all duration-300 ease-in-out cursor-default
+          {% if forloop.counter == 1 %}
+            border-l-8 border-yellow-400 bg-yellow-400/10 shadow-[inset_0_0_10px_rgba(250,204,21,0.3)]
+          {% elif forloop.counter == 2 %}
+            border-l-8 border-slate-400 bg-slate-400/10 shadow-[inset_0_0_10px_rgba(148,163,184,0.3)]
+          {% elif forloop.counter == 3 %}
+            border-l-8 border-amber-600 bg-amber-600/10 shadow-[inset_0_0_10px_rgba(217,119,6,0.3)]
+          {% elif player.username == user.username %}
+            border-l-8 border-cyan-400 bg-cyan-800/30 shadow-[inset_0_0_12px_rgba(6,182,212,0.4)]
+          {% else %}
+            hover:bg-[#1E40AF]/25
+          {% endif %}
+        ">
+          <!-- Rank -->
+          <td class="px-7 py-5 font-extrabold text-2xl select-none w-20">
+            {% if forloop.counter == 1 %}
+              <span class="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg">🥇</span>
+            {% elif forloop.counter == 2 %}
+              <span class="bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 bg-clip-text text-transparent drop-shadow-md">🥈</span>
+            {% elif forloop.counter == 3 %}
+              <span class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 bg-clip-text text-transparent drop-shadow-md">🥉</span>
+            {% else %}
+              <span class="text-white/80">#{{ forloop.counter }}</span>
+            {% endif %}
+          </td>
+
+          <!-- Player Name & Description -->
+          <td class="px-7 py-5 max-w-xs">
+            <div class="flex flex-col">
+              <span class="font-semibold text-lg
+                {% if forloop.counter == 1 %}text-yellow-400
+                {% elif forloop.counter == 2 %}text-slate-300
+                {% elif forloop.counter == 3 %}text-amber-400
+                {% elif player.username == user.username %}
+                  text-cyan-400 drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]
+                {% endif %}
+                select-text">
+                {{ player.username }}
+                {% if player.username == user.username %}
+                  <span class="ml-2 inline-block bg-cyan-600/50 text-cyan-100 text-xs font-normal rounded-full px-2 py-0.5 select-none">
+                    (You)
+                  </span>
+                {% endif %}
+              </span>
+              {% if forloop.counter <= 3 %}
+                <span class="text-xs italic font-medium text-white/70 select-none mt-1">
+                  {% if forloop.counter == 1 %}Champion
+                  {% elif forloop.counter == 2 %}Elite
+                  {% elif forloop.counter == 3 %}Veteran
+                  {% endif %}
+                </span>
+              {% endif %}
+              {% if player.description %}
+                <span class="text-gray-400 italic text-xs truncate max-w-xs mt-1 select-text" title="{{ player.description }}">
+                  {{ player.description }}
+                </span>
+              {% endif %}
+            </div>
+          </td>
+
+          <!-- Time -->
+          <td class="px-7 py-5 text-[#38BDF8] font-medium whitespace-nowrap select-text">
+            {{ player.time_taken|floatformat:2 }}s
+          </td>
+
+          <!-- Level -->
+          <td class="px-7 py-5 text-[#34D399] font-semibold whitespace-nowrap select-text">
+            Lv. {{ player.level_completed }}
+          </td>
+
+          <!-- Input -->
+          <td class="px-7 py-5 whitespace-nowrap select-text">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold
+              {% if player.input_used|lower == 'controller' %}
+                bg-[#0EA5E9]/25 text-[#38BDF8]
+              {% else %}
+                bg-[#F97316]/25 text-[#FB923C]
+              {% endif %}">
+              {{ player.input_used|capfirst }}
+            </span>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="px-7 py-12 text-center text-gray-400 text-lg font-medium select-none">
+            No leaderboard data yet. Be the first to play!
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-black text-[#E5E5E5] px-6 py-16 flex items-center justify-center">
+  <div class="max-w-6xl w-full space-y-20">
+
+    <!-- Title -->
+    <div class="text-center">
+      <h1
+        class="text-5xl md:text-6xl font-bold tracking-tight leading-tight text-[#FCA311] font-heading
+               motion-safe:animate-fadeInDown"
+      >
+        About Me
+      </h1>
+      <p
+        class="mt-4 text-lg max-w-2xl mx-auto text-[#E5E5E5] font-section
+               motion-safe:animate-fadeIn delay-200"
+      >
+        Us? No — I built this entire project solo.<br/>
+        "The JoyBoard" and "we" are just for professionalism.
+      </p>
+    </div>
+
+    <!-- About Section -->
+    <div
+      class="bg-[#14213D] border border-[#FCA311] rounded-2xl p-8 md:p-12 shadow-2xl
+             transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
+      tabindex="0"
+      role="region"
+      aria-label="About Me section"
+    >
+      <h2 class="text-3xl font-semibold text-[#FCA311] mb-6 font-section">Who I Am 🚀</h2>
+      <p class="text-lg leading-relaxed font-body">
+        I've loved building hardware and embedded systems since childhood. There's something special about creating at home what you usually buy — not about saving money, but the passion for building something tangible.<br/><br/>
+        As I progressed, I realized hardware needs software, and software needs hardware. That's when I started thinking beyond projects, toward building my own products.<br/><br/>
+        I learned and mastered several programming languages and began with small projects. This is my first integrated hardware + software product.<br/><br/>
+        The controller I use here is <span class="text-[#FCA311] font-semibold">Aetherlink</span>, fully handcrafted by me. And this website? Obviously, built 100% by me.
+      </p>
+    </div>
+
+    <!-- What I Build -->
+    <div class="grid md:grid-cols-3 gap-10 font-body">
+      <div
+        class="bg-[#14213D] border border-[#FCA311] p-6 rounded-xl shadow-lg
+               transform transition duration-300 hover:scale-105 hover:shadow-2xl
+               focus:outline-none focus:ring-4 focus:ring-[#FCA311] cursor-pointer"
+        tabindex="0"
+        role="button"
+        aria-label="Custom Game Interfaces description"
+      >
+        <h3
+          class="text-xl font-bold text-white mb-2 font-section
+                 transition-colors duration-300 hover:text-[#FFD369]"
+        >
+          🕹️ Custom Game Interfaces
+        </h3>
+        <p class="text-sm text-[#E5E5E5]">
+          <span class="text-[#FCA311] font-semibold">Aetherlink</span> is fully made by me — yes, entirely from wood. It's a 12-channel transceiver with up to 2 km range.<br/><br/>
+          Do I need such range for this project? Not really. But I built it to feel like a real console controller. It was originally designed for bigger projects, but I decided to power JoyBoard with it.
+        </p>
+      </div>
+      <div
+        class="bg-[#14213D] border border-[#FCA311] p-6 rounded-xl shadow-lg
+               transform transition duration-300 hover:scale-105 hover:shadow-2xl
+               focus:outline-none focus:ring-4 focus:ring-[#FCA311] cursor-pointer"
+        tabindex="0"
+        role="button"
+        aria-label="Web Dashboards description"
+      >
+        <h3
+          class="text-xl font-bold text-white mb-2 font-section
+                 transition-colors duration-300 hover:text-[#FFD369]"
+        >
+          🌐 Web Dashboards
+        </h3>
+        <p class="text-sm text-[#E5E5E5]">
+          This is a full-stack project using <span class="font-semibold text-[#FCA311]">HTML5, Tailwind CSS, JavaScript</span> for frontend; <span class="font-semibold text-[#FCA311]">Django</span> backend; and <span class="font-semibold text-[#FCA311]">Postgresql</span> for database storage.
+        </p>
+      </div>
+      <div
+        class="bg-[#14213D] border border-[#FCA311] p-6 rounded-xl shadow-lg
+               transform transition duration-300 hover:scale-105 hover:shadow-2xl
+               focus:outline-none focus:ring-4 focus:ring-[#FCA311] cursor-pointer"
+        tabindex="0"
+        role="button"
+        aria-label="Embedded Systems description"
+      >
+        <h3
+          class="text-xl font-bold text-white mb-2 font-section
+                 transition-colors duration-300 hover:text-[#FFD369]"
+        >
+          📦 Embedded Systems
+        </h3>
+        <p class="text-sm text-[#E5E5E5]">
+          The controller uses <span class="font-semibold text-[#FCA311]">Arduino</span> with an <span class="font-semibold text-[#FCA311]">NRF24L01</span> module to send signals, which are received in Python for real-time game control.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tech Quote -->
+    <div
+      class="border-l-4 border-[#FCA311] pl-6 py-8 text-lg italic
+             motion-safe:animate-pulse text-[#FCA311] font-semibold font-body"
+    >
+      <p>
+        "UI should hit hard. Code should feel clean. Projects should speak loud — even without explanation."
+      </p>
+    </div>
+
+    <!-- Core Values & Mission -->
+    <div class="grid md:grid-cols-2 gap-10 md:text-base">
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white font-section">💡 Core Values</h3>
+        <ul class="list-disc list-inside text-[#E5E5E5] space-y-1 font-body text-[13px]">
+          <li><span class="font-semibold text-[#FCA311]">Passion:</span> Building tangible, meaningful tech that excites me.</li>
+          <li><span class="font-semibold text-[#FCA311]">Innovation:</span> Pushing limits by merging hardware & software.</li>
+          <li><span class="font-semibold text-[#FCA311]">Quality:</span> Precision and polish in every line of code and circuit.</li>
+          <li><span class="font-semibold text-[#FCA311]">Growth:</span> Learning constantly to turn projects into real products.</li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white font-section">🎯 My Mission</h3>
+        <ul class="list-disc list-inside text-[#E5E5E5] space-y-1 font-body text-[13px]">
+          <li>Build an all-in-one hardware, game dev, full-stack, and UI solution.</li>
+          <li>Design projects that not only function but impress.</li>
+          <li>Develop a true all-rounder that blends technology and creativity.</li>
+          <li>Continuously innovate to push the limits of what's possible.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Future Goals -->
+    <div
+      class="bg-[#14213D] border border-[#FCA311] rounded-xl p-8 shadow-inner
+             transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+      tabindex="0"
+      role="region"
+      aria-label="Future goals"
+    >
+      <h3 class="text-2xl font-bold text-white mb-4 font-section">⚡ What's Next?</h3>
+      <p class="text-[#E5E5E5] leading-relaxed font-body">
+        I plan to evolve this project by adding AI or ML features, making it accessible to everyone who wants to play and compete.<br/><br/>
+        The goal? <span class="text-[#FCA311] font-semibold">Build a one-of-a-kind IoT full-stack project and deliver it as a polished product.</span>
+      </p>
+    </div>
+
+    <!-- Signature -->
+    <div class="border-t border-[#FCA311] pt-10 text-center">
+      <p class="text-xl text-[#FCA311] font-semibold italic font-body
+                motion-safe:animate-pulse">
+        "I don't just write code. I craft ecosystems that work."
+      </p>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

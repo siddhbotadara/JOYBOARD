@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+.font-heading { font-family: 'Unbounded', sans-serif; }
+.font-section { font-family: 'Rajdhani', sans-serif; }
+.font-button { font-family: 'Audiowide', sans-serif; }
+.font-body { font-family: 'JetBrains Mono', monospace; }
+.font-logo { font-family: 'Orbitron', sans-serif; }

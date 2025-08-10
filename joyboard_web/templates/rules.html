@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}How To Play{% endblock %}
+
+{% block content %}
+<section class="relative flex flex-col items-center pt-20 pb-20 px-4 bg-[#000000] space-y-28 max-w-6xl mx-auto">
+
+    <!-- Title -->
+  <div class="text-center">
+    <h1 class="text-5xl md:text-6xl font-bold tracking-tight leading-tight text-[#FCA311] font-heading">
+      Rules & Instructions
+    </h1>
+    <p class="mt-4 text-lg max-w-2xl mx-auto text-[#E5E5E5] font-section">
+      Navigate your JoyBoarder through thrilling challenges that test your focus and timing.<br/>
+      Stay sharp, overcome obstacles, and enjoy every moment of the adventure!
+    </p>
+  </div>
+
+ {% comment %} 1 - Player {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/Player Only.png' %}" alt="Player Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">LVL 8</div>
+    </div>
+    <div class="absolute left-44 right-10 top-[40%] h-[2px] bg-gradient-to-r from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute left-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Player and Controls &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">This is you, the Joyboarder — a skilled 2D platformer hero who runs, jumps, and shoots with precision. Master your moves to survive the challenges that lie ahead and conquer every level.</p>
+    </div>
+  </div>
+
+  {% comment %} 2 - Levels {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10 flex-row-reverse">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/Maps.png' %}" alt="Maps Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">BOSS</div>
+    </div>
+    <div class="absolute right-44 left-10 top-[40%] h-[2px] bg-gradient-to-l from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute right-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Levels and Progression &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">The game features five uniquely themed levels. As you start, you begin at level one, and each subsequent level increases in difficulty. Your health and immunity bars carry over from one level to the next, requiring consistent skill and strategy.</p>
+    </div>
+  </div>
+
+  {% comment %} 3 - Enemy {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/zombie.png' %}" alt="Zombie Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">LVL 8</div>
+    </div>
+    <div class="absolute left-44 right-10 top-[40%] h-[2px] bg-gradient-to-r from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute left-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Enemies and Combat &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">Zombies spawn randomly throughout the map at various points, attacking you by firing bullets when you enter their range. As you advance through the levels, the zombies become stronger with increased health, requiring more hits to defeat.</p>
+    </div>
+  </div>
+
+  {% comment %} 4 - Collectables {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10 flex-row-reverse">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/collectable.png' %}" alt="Collectable Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">BOSS</div>
+    </div>
+    <div class="absolute right-44 left-10 top-[40%] h-[2px] bg-gradient-to-l from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute right-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Collectables and Objectives &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">Each level contains a set of collectables scattered randomly across the map. You must collect all of them to progress, with the number of collectables increasing as you move to higher levels. Some collectables require precise parkour skills to reach.</p>
+    </div>
+  </div>
+
+  {% comment %} 5 - Lava {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/lava.png' %}" alt="Lava Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">LVL 8</div>
+    </div>
+    <div class="absolute left-44 right-10 top-[40%] h-[2px] bg-gradient-to-r from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute left-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Lava Hazards &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">Lava is present in all levels as a constant environmental hazard. Standing on lava causes continuous damage, forcing you to carefully navigate the terrain to avoid losing health.</p>
+    </div>
+  </div>
+
+  {% comment %} 6 - Completion {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10 flex-row-reverse">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/restart.png' %}" alt="Restart Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">BOSS</div>
+    </div>
+    <div class="absolute right-44 left-10 top-[40%] h-[2px] bg-gradient-to-l from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute right-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Level Completion and Restart Mechanics &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">To successfully complete a level, you must defeat all zombies and collect all collectables. If you die or fail to complete a level, you must restart from level one. There are no checkpoints, making every decision critical.</p>
+    </div>
+  </div>
+
+  {% comment %} 7 - Leaderboard {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/timer.png' %}" alt="Timer Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">LVL 8</div>
+    </div>
+    <div class="absolute left-44 right-10 top-[40%] h-[2px] bg-gradient-to-r from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute left-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Timers and Leaderboards &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">From the start of the game, both level timers and an overall challenge timer track your performance. These timers run continuously regardless of winning or losing. Your best times and level progress are recorded for leaderboard rankings.</p>
+    </div>
+  </div>
+
+  {% comment %} 8 - Winner {% endcomment %}
+  <div class="relative flex w-full max-w-5xl items-center gap-x-10 z-10 flex-row-reverse">
+    <div class="relative w-44 h-44 group flex-shrink-0 rounded-2xl">
+      <div class="absolute inset-0 rounded-2xl border-4 border-white animate-spin-slow bg-gradient-to-r from-[#FCA311] via-transparent to-[#FCA311] bg-[length:400%_400%] blur-sm"></div>
+      <div class="relative z-10 w-full h-full bg-[#1B263B] rounded-2xl p-1 shadow-[0_0_25px_#FCA311aa] transition-all duration-500 hover:scale-[1.05]">
+        <img src="{% static 'Images For Website/trophy.png' %}" alt="Trophy Image" class="w-full h-full object-cover rounded-2xl border-white border-4" />
+      </div>
+      <div class="absolute top-0 right-0 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#FCA311] to-[#FFBA3A] text-[#14213D] rounded-bl-2xl rounded-tr-2xl shadow-md">BOSS</div>
+    </div>
+    <div class="absolute right-44 left-10 top-[40%] h-[2px] bg-gradient-to-l from-transparent via-[#E5E5E5]/70 to-transparent animate-pulse z-0"></div>
+    <div class="absolute right-[11.5rem] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#E5E5E5] rounded-full animate-ping"></div>
+    <div class="flex-1 bg-gradient-to-br from-[#14213D] to-[#1F2A48] border-2 border-[#FCA311] rounded-3xl p-10 shadow-[0_0_35px_#FCA31180] transition-all duration-500 hover:shadow-[0_0_45px_#FCA311cc] hover:-translate-y-1 hover:scale-[1.01] ease-in-out">
+      <h4 class="text-4xl font-bold text-white font-section mb-2 tracking-wide drop-shadow-sm">Winning Conditions and Ranking &#10549;</h4>
+      <p class="text-white pt-8 text-base leading-relaxed font-body tracking-wide opacity-90">The game is only won by completing all five levels. Leaderboard rankings are based on how far you progress and how quickly you complete the entire game. The faster and further you go, the higher your rank on the leaderboard.</p>
+    </div>
+  </div>
+
+  <!-- Controls - Title -->
+  <div class="border-t border-[#FCA311] pt-10 text-center w-full">
+    <div class="text-center max-w-6xl mx-auto">
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tight leading-tight text-[#FCA311] font-heading">
+        Command Your JoyBoarder
+      </h1>
+      <div class="mt-4 max-w-2xl mx-auto text-[#E5E5E5] font-section text-lg">
+        <p class="whitespace-nowrap">
+          You can play using either the Aetherlink controller (Arduino + NRF-based) or your keyboard.
+        </p>
+        <p class="whitespace-nowrap mt-4">
+          For the smoothest and most immersive experience, we recommend using the controller.
+        </p>
+        <p class="whitespace-nowrap mt-4">
+          Whatever you choose, get ready to take full control of your JoyBoarder and enjoy the game!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls Card -->
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#E5E5E5] font-section text-lg">
+    
+    <!-- Keyboard Controls -->
+    <div class="bg-[#14213D] rounded-3xl p-8 shadow-md hover:shadow-[0_0_40px_10px_#FCA311] transition-shadow duration-300">
+      <h2 class="text-3xl font-semibold mb-6 border-b border-[#FCA311] pb-2">
+        Keyboard Controls &#10549;
+      </h2>
+      <ul class="space-y-5">
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">&#x276E; / &#x276F;</kbd>
+          <span>Move JoyBoarder</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">
+            Spacebar / <span style="display:inline-block; transform: rotate(-90deg);">&#x276F;</span>
+          </kbd>
+          <span>Jump</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">F</kbd>
+          <span>Shoot</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Esc</kbd>
+          <span>Pause / Open Menu</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">R</kbd>
+          <span>Restart</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">H</kbd>
+          <span>Homepage</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">M</kbd>
+          <span>Mute / Unmute Sound</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Enter / Spacebar</kbd>
+          <span>Start</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Aetherlink Controller -->
+    <div class="bg-[#14213D] rounded-3xl p-8 shadow-md hover:shadow-[0_0_40px_10px_#FCA311] transition-shadow duration-300">
+      <h2 class="text-3xl font-semibold mb-6 border-b border-[#FCA311] pb-2">
+        Aetherlink Controller &#10549;
+      </h2>
+      <ul class="space-y-5">
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Joystick Right</kbd>
+          <span>Move JoyBoarder</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Joystick Left (Up)</kbd>
+          <span>Jump</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Joystick Left (Down)</kbd>
+          <span>Shoot</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Button Left</kbd>
+          <span>Pause / Open Menu</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Toggle Button Down</kbd>
+          <span>Restart</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Button Right</kbd>
+          <span>Homepage</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Potentiometer</kbd>
+          <span>Volume Level</span>
+        </li>
+        <li class="flex items-center gap-5">
+          <kbd class="bg-[#FCA311] text-black px-4 py-2 rounded font-mono font-bold tracking-wide">Toggle Button Up</kbd>
+          <span>Start</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+</style>
+{% endblock %}

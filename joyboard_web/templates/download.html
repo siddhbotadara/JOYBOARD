@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+{% block title %}Download{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-[#0A0A0A] text-white py-8 px-6 relative z-10 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0F0F0F] via-[#1A1A1A] to-black z-0"></div>
+  <div class="absolute -top-32 -right-32 w-[65vw] h-[65vw] bg-[#FCA311]/10 blur-[180px] rounded-full z-0"></div>
+
+  <!-- Header -->
+  <div class="relative z-10 text-center max-w-6xl mx-auto mb-20 px-4 sm:px-0 motion-safe:animate-fadeInDown">
+    <h1
+      class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#FCA311] to-white tracking-tight drop-shadow-xl pt-10
+             motion-safe:animate-fadeInDown font-heading transition-all duration-700 ease-in-out
+             hover:scale-105 hover:brightness-110 hover:drop-shadow-[0_0_15px_rgba(252,163,17,0.8)]">
+      Download JoyBoard
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-gray-400 font-light leading-relaxed tracking-wide font-section">
+      Experience seamless gameplay. Choose your platform and dive into JoyBoard.
+    </p>
+    <div
+      class="mt-8 h-1 w-1/3 mx-auto bg-gradient-to-r from-transparent via-[#FCA311]/70 to-transparent blur-md rounded-full"></div>
+  </div>
+
+  <!-- Cards -->
+  <div
+    class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto motion-safe:animate-fadeInUp delay-300 mt-16">
+
+    <!-- Windows -->
+    <div
+      class="bg-[#111827] border border-[#1F2937] rounded-3xl p-6 text-center hover:shadow-[0_0_25px_4px_rgba(252,163,17,0.4)] transition-all duration-500 hover:-translate-y-2">
+      <div class="text-4xl mb-4 text-[#FCA311]">🪟</div>
+      <h3 class="text-xl font-bold tracking-wide">Windows</h3>
+      <p class="text-sm text-gray-400 mt-2 mb-6">Compatible with Windows 10 and 11 (32/64-bit)</p>
+      <button onclick="openNoticeModal()"
+        class="inline-block mt-2 px-4 py-2 rounded-full bg-[#FCA311] text-black font-bold tracking-wide hover:bg-white transition-colors duration-300 cursor-pointer font-button">
+        Download ZIP (50MB)
+      </button>
+    </div>
+
+    <!-- macOS -->
+    <div
+      class="bg-[#111827] border border-[#1F2937] rounded-3xl p-8 text-center opacity-60 hover:opacity-70 transition-all duration-300 cursor-not-allowed">
+      <div class="text-4xl mb-4 text-[#FCA311]">🍎</div>
+      <h3 class="text-xl font-bold tracking-wide">macOS</h3>
+      <p class="text-sm text-gray-400 mt-2 mb-6">Optimized build for macOS coming soon.</p>
+      <span
+        class="inline-block px-6 py-3 rounded-full border border-[#FCA311] text-[#FCA311] font-bold tracking-wide bg-[#0A0A0A] cursor-not-allowed">
+        Coming Soon
+      </span>
+    </div>
+
+    <!-- Linux -->
+    <div
+      class="bg-[#111827] border border-[#1F2937] rounded-3xl p-8 text-center opacity-60 hover:opacity-70 transition-all duration-300 cursor-not-allowed">
+      <div class="text-4xl mb-4 text-[#FCA311]">🐧</div>
+      <h3 class="text-xl font-bold tracking-wide">Linux</h3>
+      <p class="text-sm text-gray-400 mt-2 mb-6">Linux support is on the roadmap.</p>
+      <span
+        class="inline-block px-6 py-3 rounded-full border border-[#FCA311] text-[#FCA311] font-bold tracking-wide bg-[#0A0A0A] cursor-not-allowed">
+        Coming Soon
+      </span>
+    </div>
+  </div>
+
+  <!-- Modal for Important Notice -->
+  <div id="notice-modal" class="modal-overlay hidden" aria-modal="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-content" role="document" tabindex="0">
+      <button
+        onclick="closeNoticeModal()"
+        class="modal-close-btn"
+        aria-label="Close modal">&times;</button>
+
+      <h2 id="modal-title" class="modal-title">🛡️ Important Security Notice</h2>
+
+      <div id="modal-desc" class="modal-body">
+
+        <section class="modal-section">
+          <p>
+            JoyBoard is a next-generation Python-based indie game, packaged with industry-standard protection and optimization.<br>
+            Because our studio is <strong>new and unsigned</strong>, some antivirus and security systems may treat our executable as “unknown software.”  
+            This is <strong>normal for indie developers</strong> and does <u>not</u> indicate any malware.
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-subtitle">⚠️ Known Antivirus Interference</h3>
+          <p>
+            <strong>Some antivirus programs may block, slow down, or interfere with JoyBoard during gameplay.<br>
+            If you use one of the following, we recommend temporarily disabling it while playing for the best experience:</strong>
+          </p>
+          <ul class="modal-list">
+            <li>Avast</li>
+            <li>Bkav Pro</li>
+            <li>SentinelOne</li>
+            <li>AVG</li>
+            <li>SecureAge</li>
+          </ul>
+          <p>
+            <strong>It should work properly as long as you're not using any of the antivirus programs listed above.</strong>
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-subtitle">💡 Microsoft SmartScreen Warnings</h3>
+          <p>
+            On Windows, you may see messages like  
+            <strong>"Unknown Publisher"</strong> or  
+            <strong>"SmartScreen can't verify"</strong>.  
+            This is a standard safeguard for unsigned apps.
+          </p>
+          <p><strong>How to continue:</strong></p>
+          <ol class="modal-list modal-steps">
+            <li>Click <strong>"More info"</strong> when the SmartScreen warning appears.</li>
+            <li>Select <strong>"Run Anyway"</strong> to launch JoyBoard.</li>
+          </ol>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-subtitle">✅ Our Security Commitment</h3>
+          <p>
+            JoyBoard has passed all of our internal safety checks and contains <strong>no malicious code</strong>.<br>
+            We are a small indie studio committed to ensuring your game experience is safe, smooth, and enjoyable.<br>
+            Thank you for supporting independent developers — your trust allows us to keep creating great games.
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-subtitle">🎮 How to Play & Run JoyBoard</h3>
+          <p>
+            After downloading and extracting the zip, please read the included <strong>README.txt</strong> file carefully.<br>
+            It contains important instructions on how to run the game, system requirements, and troubleshooting tips.
+          </p>
+          <p>To start playing:</p>
+          <ol class="modal-list modal-steps">
+            <li>Locate the <strong>Joyboard_Game.exe</strong> executable file inside the extracted folder.</li>
+            <li>Double-click to launch the game. If you encounter any security warnings, refer to the Microsoft SmartScreen section above.</li>
+            <li>For optimal experience, ensure any interfering antivirus software is disabled temporarily during gameplay.</li>
+          </ol>
+        </section>
+
+      </div>
+
+      <button onclick="startDownload()" class="modal-agree-btn font-button" aria-label="Agree and start download">
+        Agree & Download
+      </button>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader-overlay" class="hidden">
+    <div class="loader-container">
+      <div class="spinner"></div>
+      <div class="loader-text">Downloading...</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div
+    class="mt-24 text-center text-sm text-gray-500 tracking-wide font-mono motion-safe:animate-fadeIn delay-500">
+    © 2025 JoyBoard Inc. — Game differently.
+  </div>
+</section>
+
+<script>
+  function openNoticeModal() {
+    document.body.style.overflow = 'hidden';
+    const modal = document.getElementById('notice-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('fade-in');
+  }
+  function closeNoticeModal() {
+    document.body.style.overflow = ''; 
+    const modal = document.getElementById('notice-modal');
+    modal.classList.remove('fade-in');
+    modal.classList.add('fade-out');
+
+    modal.addEventListener('animationend', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('fade-out');
+    }, {once: true});
+  }
+  function startDownload() {
+    closeNoticeModal();
+    showLoader();
+    window.location.href = "{% url 'download_joyboard' %}";
+  }
+  function showLoader() {
+    const loader = document.getElementById('loader-overlay');
+    loader.classList.remove('hidden');
+    setTimeout(() => loader.classList.add('hidden'), 3000);
+  }
+</script>
+
+<style>
+
+.modal-overlay {
+  position: fixed;
+  inset: 80px 0 0 0; 
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  padding-top: 30px; 
+  z-index: 10000;
+}
+.modal-overlay.hidden {
+  display: none;
+}
+
+
+.fade-in {
+  animation: fadeInModal 0.3s ease forwards;
+}
+.fade-out {
+  animation: fadeOutModal 0.3s ease forwards;
+}
+@keyframes fadeInModal {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeOutModal {
+  from {opacity: 1; transform: translateY(0);}
+  to {opacity: 0; transform: translateY(-10px);}
+}
+
+
+.modal-content {
+  background-color: #141B25;
+  border: 2px solid #FCA311;
+  border-radius: 1rem;
+  max-width: 1200px;
+  max-height: 80vh; 
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  color: #ddd;
+  box-shadow: 0 0 20px rgba(252, 163, 17, 0.6);
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  scroll-behavior: smooth;
+}
+
+.modal-content h2,
+.modal-content h3 {
+  color: #FCA311;
+  margin-bottom: 1rem;
+}
+
+.modal-content h2.modal-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #FCA311;
+  padding-bottom: 0.5rem;
+  user-select: none;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid #FCA311;
+  padding-bottom: 0.3rem;
+  user-select: none;
+}
+
+.modal-content strong {
+  color: #fff;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+  line-height: 1.65;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.modal-content ol,
+.modal-content ul {
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+  color: #bbb;
+  font-size: 1.05rem;
+}
+
+.modal-content ul {
+  list-style-type: disc;
+}
+
+.modal-content ol {
+  list-style-type: decimal;
+}
+
+.modal-content ul li,
+.modal-content ol li {
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+}
+
+.modal-close-btn:focus {
+  outline: 2px solid #FCA311;
+  outline-offset: 2px;
+}
+
+.modal-agree-btn {
+  display: block;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FCA311;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.modal-agree-btn:hover {
+  background-color: #fff;
+}
+
+#loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11000;
+}
+
+#loader-overlay.hidden {
+  display: none;
+}
+
+.loader-container {
+  text-align: center;
+  color: #FCA311;
+  font-weight: 700;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.spinner {
+  margin: 0 auto 20px;
+  width: 60px;
+  height: 60px;
+  border: 6px solid #FCA311;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
+{% endblock %}

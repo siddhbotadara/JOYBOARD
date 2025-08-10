@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  {% comment %} Favicon link {% endcomment %}
+  <link rel="icon" href="{% static 'Images For Website/favicon_circle.ico' %}" sizes="128x128" type="image/x-icon">
+  <script defer src="{% static 'js/script.js' %}"></script>
+  <style>
+    #toggleIcon {
+      font-size: 1.25rem;
+      line-height: 1;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex items-center justify-center bg-black">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img src="{% static 'Images For Website/user_bg_1.webp' %}" alt="Background"
+         class="w-full h-full object-cover">
+  </div>
+
+  <!-- Form -->
+  <div class="relative z-10 w-full max-w-md px-2">
+    <form id="login-form" method="POST" class="space-y-8 bg-gray-900 bg-opacity-80 p-8 rounded-4xl shadow-2xl backdrop-blur-sm">
+      {% csrf_token %}
+      <div class="space-y-2 mb-6">
+        <a href="/" class="tracking-[0.2em] uppercase font-logo flex justify-center text-[#FCA311] font-extrabold text-[32px] hover:underline hover:scale-105 transition-transform">JoyBoard</a>
+        <h3 class="text-white text-center text-[20px] font-bold font-section">Login</h3>
+      </div>
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="text-white flex flex-col space-y-4">
+        <input type="text" name="username" placeholder="Username*" required
+               class="bg-gray-800 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white-500 font-body">
+        <div class="relative">
+          <input type="password" name="password" id="password" placeholder="Password*" required
+                class="bg-gray-800 px-4 py-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-white-500 font-body pr-10">
+          <button type="button" id="toggleIcon"
+                  onclick="togglePassword()"
+                  class="absolute right-3 top-2 text-white hover:text-[#FCA311] text-xl">👁️</button>
+        </div>
+        <br>
+        <button id="login-btn" type="submit"
+                class="bg-[#FCA311] text-black px-4 py-1 rounded-lg hover:bg-[#d18f0f] transition font-button text-[20px] flex items-center justify-center space-x-2">
+          <span>Login</span>
+          <svg id="spinner" class="hidden animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-1">
+        <a href="/forgotpass" class="text-white flex justify-center underline hover:text-[#DDA15E] font-body">Forgot Password?</a>
+        <br>
+        <a href="/signup" class="text-white flex justify-center underline hover:text-[#DDA15E] font-body">Don't Have An Account?</a>
+      </div>
+      {% if error %}
+        <p class="text-red-500 mt-4 text-center font-body">{{ error }}</p>
+      {% endif %}
+    </form>
+  </div>
+
+<script>
+function togglePassword() {
+  const pswd = document.getElementById('password');
+  const btn = document.getElementById('toggleIcon');
+  const isHidden = pswd.type === 'password';
+  pswd.type = isHidden ? 'text' : 'password';
+  btn.textContent = isHidden ? '🙈' : '👁️';
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("login-form");
+  const btn = document.getElementById("login-btn");
+  const spinner = document.getElementById("spinner");
+
+  form.addEventListener("submit", () => {
+    spinner.classList.remove("hidden");
+    btn.disabled = true;
+    btn.classList.add("opacity-50", "cursor-not-allowed");
+    btn.querySelector("span").textContent = "Logging in...";
+  });
+});
+</script>
+
+</body>
+</html>

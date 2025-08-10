@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="relative w-full pt-8 pb-16 px-4 flex items-center justify-center overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-10">
+    <img src="{% static 'Images For Website/user_bg.png' %}" alt="Contact background"
+         class="w-full h-full object-cover brightness-75
+                motion-safe:animate-fadeIn" />
+  </div>
+
+  <!-- Contact Form -->
+  <div
+    class="w-full max-w-2xl bg-gray-900 bg-opacity-80 backdrop-blur-md p-6 rounded-2xl shadow-2xl space-y-6 z-10
+           transition-transform duration-300 hover:scale-[1.02] hover:shadow-3xl
+           focus-within:ring-4 focus-within:ring-[#FCA311] outline-none"
+    tabindex="0"
+    role="region"
+    aria-label="Contact form"
+  >
+
+    <div class="text-center">
+      <h2 class="text-[#FCA311] text-3xl font-extrabold font-heading motion-safe:animate-fadeInDown">
+        Contact Us
+      </h2>
+      <p class="text-gray-300 text-lg font-body motion-safe:animate-fadeIn delay-150">
+        We'd love to hear from you!
+      </p>
+    </div>
+
+    {% if messages %}
+    <div class="mb-4 space-y-2 motion-safe:animate-fadeIn">
+      {% for message in messages %}
+      <div class="p-2 rounded
+          {% if message.tags == 'success' %}bg-green-500 text-white
+          {% elif message.tags == 'error' %}bg-red-500 text-white
+          {% else %}bg-gray-200 text-black{% endif %}
+          transition-colors duration-300
+          hover:brightness-110
+          ">
+          {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form id="contact-form" method="POST" action="{% url 'contact-html' %}" class="space-y-4">
+      {% csrf_token %}
+
+      <div class="flex flex-col">
+        <label class="text-white text-sm font-medium font-section mb-1">
+          Full Name <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="text" name="name" placeholder="Firstname and Lastname" required
+          class="bg-gray-800 text-white px-3 py-2 rounded-md font-body
+                 transition duration-300
+                 focus:outline-none focus:ring-2 focus:ring-[#FCA311]
+                 hover:ring-2 hover:ring-[#FCA311]"
+        >
+      </div>
+
+      <div class="flex flex-col">
+        <label class="text-white text-sm font-medium font-section mb-1">
+          Email <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="email" name="email" placeholder="Please use the same email address provided during signup." required
+          class="bg-gray-800 text-white px-3 py-2 rounded-md font-body
+                 transition duration-300
+                 focus:outline-none focus:ring-2 focus:ring-[#FCA311]
+                 hover:ring-2 hover:ring-[#FCA311]"
+        >
+      </div>
+
+      <div class="flex flex-col">
+        <label class="text-white text-sm font-medium font-section mb-1">
+          Message <span class="text-red-500">*</span>
+        </label>
+        <textarea
+          name="message" rows="3" placeholder="Do not exceed 100 words" required
+          class="bg-gray-800 text-white px-3 py-2 rounded-md font-body resize-none
+                 transition duration-300
+                 focus:outline-none focus:ring-2 focus:ring-[#FCA311]
+                 hover:ring-2 hover:ring-[#FCA311]"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        id="submit-btn"
+        type="submit"
+        class="w-full bg-[#FCA311] text-black py-2 rounded-lg
+               hover:bg-[#d18f0f] transition-colors duration-300
+               font-semibold font-button
+               focus:outline-none focus:ring-4 focus:ring-[#FCA311]"
+      >
+        Send Message
+      </button>
+
+      <!-- Loading -->
+      <div id="loader" class="hidden flex justify-center items-center mt-4 space-x-2">
+        <div class="w-5 h-5 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+        <span class="text-white font-body">Sending...</span>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const btn = document.getElementById("submit-btn");
+    const loader = document.getElementById("loader");
+
+    form.addEventListener("submit", () => {
+
+      loader.classList.remove("hidden");
+
+      btn.disabled = true;
+      btn.classList.add("opacity-50", "cursor-not-allowed");
+      btn.innerText = "Sending...";
+    });
+  });
+</script>
+{% endblock %}
