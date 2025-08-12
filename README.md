@@ -1,17 +1,18 @@
-<table style="border-collapse: collapse; width: 100%;">
-  <tr>
-    <td style="border: none; vertical-align: middle; padding: 0;">
-      <h1 style="margin: 0;">JOYBOARD</h1>
-      <p style="color:#666; font-size: 1rem; margin: 0;">
-        Where Gaming Meets Web &amp; IoT — Play, Compete, and Connect.            
-      </p>
-    </td>
-    <td style="border: none; text-align: right; padding: 0 50px 0 0;">
-      <img src="assets/Readme_Img/logo_image.png" alt="Logo" width="250" />
-    </td>
-  </tr>
+<table cellspacing="0" cellpadding="0" style="width: 100%; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td style="vertical-align: middle; padding: 0; border: none;">
+        <h1 style="margin: 0;">JOYBOARD</h1>
+        <p style="color: #666; font-size: 1rem; margin: 0;">
+          Where Gaming Meets Web &amp; IoT — Play, Compete, and Connect.
+        </p>
+      </td>
+      <td style="text-align: right; vertical-align: middle; padding: 0; border: none;">
+        <img src="assets/Readme_Img/logo_image.png" alt="Logo" width="250" style="margin-right: 10px;" />
+      </td>
+    </tr>
+  </tbody>
 </table>
-
 
 <br>
 
