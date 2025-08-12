@@ -1,0 +1,8 @@
+This repository contains multiple subprojects with different licenses.
+
+Unless otherwise noted in a subproject's folder, the code is licensed under the MIT License.
+
+Subproject-specific licenses:
+- /joyboard_game: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+- /joyboard_web: MIT License
+- /joyboard_controller: MIT License 
