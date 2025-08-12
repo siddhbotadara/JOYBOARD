@@ -1,12 +1,17 @@
-<div style="display: flex; align-items: center; justify-content: space-between;">
-  <div style="display: flex; flex-direction: column; justify-content: center; transform: translateY(5px);">
-    <h1 style="margin: 0; font-size: 2rem;">JOYBOARD</h1>
-    <p style="margin: 0; font-size: 1rem; color: #666;">
-      Where Gaming Meets Web & IoT — Play, Compete, and Connect.
-    </p>
-  </div>
-  <img src="assets/Readme_Img/logo_image.png" alt="Logo" width="250" style = "transform: translateY(-10px);" />
-</div>
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="border: none; vertical-align: middle; padding: 0;">
+      <h1 style="margin: 0;">JOYBOARD</h1>
+      <p style="color:#666; font-size: 1rem; margin: 0;">
+        Where Gaming Meets Web &amp; IoT — Play, Compete, and Connect.            
+      </p>
+    </td>
+    <td style="border: none; text-align: right; padding: 0 50px 0 0;">
+      <img src="assets/Readme_Img/logo_image.png" alt="Logo" width="250" />
+    </td>
+  </tr>
+</table>
+
 
 <br>
 
