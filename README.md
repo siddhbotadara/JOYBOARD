@@ -1,15 +1,17 @@
 <p align="center">
 
   <!-- Banner Image -->
-  <img src="assets/Readme_Img/banner_3.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
+  <img src="assets/Readme_Img/banner_4.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
 
   <!-- Title -->
   <br>
-  <strong style="font-size:2.2rem;">JOYBOARD</strong>
+  <strong style="font-size:2.5rem;">JOYBOARD</strong>
   <br><br>
 
   <!-- Tagline -->
-  Where <strong>Gaming</strong> Meets <strong>Web</strong> & <strong>IoT</strong> — Play, Compete, and Connect.
+  <div align="center" style="font-size:1rem; color:#666; max-width:600px; margin:auto;">
+    Where <strong>Gaming</strong> Meets <strong>Web</strong> & <strong>IoT</strong> — Play, Compete, and Connect.
+  </div>
 
 </p>
 
