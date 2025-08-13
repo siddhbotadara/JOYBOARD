@@ -1,39 +1,35 @@
-<table cellspacing="0" cellpadding="0" style="width: 100%; border-collapse: collapse;">
-  <tbody>
-    <tr>
-      <td style="vertical-align: middle; padding: 0; border: none;">
-        <h1 style="margin: 0;">JOYBOARD</h1>
-        <p style="color: #666; font-size: 1rem; margin: 0;">
-          Where Gaming Meets Web &amp; IoT — Play, Compete, and Connect.
-        </p>
-      </td>
-      <td style="text-align: right; vertical-align: middle; padding: 0; border: none;">
-        <img src="assets/Readme_Img/logo_image.png" alt="Logo" width="250" style="margin-right: 10px;" />
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div style="text-align: center;">
+  <!-- Banner Image -->
+  <img src="assets/Readme_Img/banner.png" alt="JOYBOARD Banner" 
+       style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;" />
+  <!-- Text Below Banner -->
+  <h1 style="margin: 35px 0 5px; font-size: 2rem;">JOYBOARD</h1>
+  <p style="margin: 0; font-size: 1rem; color: #666;">
+    Where Gaming Meets Web & IoT — Play, Compete, and Connect.
+  </p>
+</div>
 
 <br>
 
 [![Version](https://img.shields.io/badge/Version-1.0.0.0-blue.svg)](#)
-[![GitHub Stars](https://img.shields.io/github/stars/siddhbotadara/JOYBOARD.svg?cacheBust=1
-)](https://github.com/siddhbotadara/JOYBOARD/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/siddhbotadara/JOYBOARD.svg?cacheBust=1)](https://github.com/siddhbotadara/JOYBOARD/stargazers)
 [![Downloads](https://img.shields.io/badge/Downloads-2-orange.svg)](https://joyboard.onrender.com)
+[![Website](https://img.shields.io/badge/Website-joyboard.onrender.com-brightgreen.svg)](https://joyboard.onrender.com)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 [![OS](https://img.shields.io/badge/OS-Windows-purple.svg)](#)
 [![Email](https://img.shields.io/badge/Email-teamjoyboard%40gmail.com-red.svg)](mailto:siddhbotadara@gmail.com)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/your-project-id)](https://www.codacy.com/gh/user/repo/dashboard)
 
 
 ---
 
-## Overview
+## 📝 Overview
 
 **JOYBOARD** is an integrated gaming ecosystem combining a fast-paced 2D platformer, a real-time web dashboard, and a custom Arduino wireless controller. Players tackle handcrafted levels with smart challenges while competing through live leaderboards and detailed gameplay analytics. With seamless hardware-software integration, JOYBOARD delivers a unique, immersive, and competitive gaming experience.
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
 The repository is organized into three main components:
 
@@ -56,7 +52,7 @@ Each component has its own README file detailing installation, usage, and develo
 
 ---
 
-## Features
+## ✨ Features
 
 - Multi-level 2D platformer game with keyboard and wireless controller support  
 - Full stack web application for player stats, match history, performance analytics and more  
@@ -67,7 +63,7 @@ For detailed features, please check the README files for each component.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Clone the Repository
 Open your terminal and run the following commands to clone the repository and navigate to the web component directory:
@@ -91,13 +87,13 @@ Feel free to explore each component’s README for step-by-step setup and usage 
 
 ---
 
-## Demo
+## 🎥 Demo
 
 My link to demo
 
 ---
 
-## Roadmap
+## 🛣️ Roadmap
 
 - Integrate AI/ML features for enhanced gameplay and personalized user experience  
 - Expand hardware integrations with additional IoT devices and controllers  
@@ -109,7 +105,7 @@ My link to demo
 
 ---
 
-## License
+## 📄 License
 
 - **Website:** MIT License — permissive open-source license allowing reuse with attribution.  
   [View License](https://choosealicense.com/licenses/mit/)
@@ -122,7 +118,7 @@ My link to demo
 
 ---
 
-## Support/Feedback
+## 💬 Support/Feedback
 
 Contact at email teamjoyboard@gmail.com.
 
