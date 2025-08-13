@@ -89,6 +89,48 @@ The website serves as the **central hub** for:
 
 ---
 
+## 🖼️ Screenshots
+
+> Explore the key features and interface of **JoyBoard Web** — clean, modern, and user-friendly.
+
+---
+
+### 📊 Dashboard
+<p align="center">
+  <img src="../assets/Readme_Img/dashboard.jpg" alt="User Dashboard" width="100%" style="border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+  <br>
+  <em>Interactive dashboard with a performance summary and profile.</em>
+</p>
+
+---
+
+### 🏆 Leaderboard
+<p align="center">
+  <img src="../assets/Readme_Img/leaderboard.jpg" alt="Leaderboard" width="100%" style="border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+  <br>
+  <em>Real-time leaderboard powered by PostgreSQL and REST APIs for competitive insights.</em>
+</p>
+
+---
+
+### ⬇️ Download Section
+<p align="center">
+  <img src="../assets/Readme_Img/download.jpg" alt="Download Page" width="100%" style="border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+  <br>
+  <em>One-click download interface for easy access to resources.</em>
+</p>
+
+---
+
+### 🔐 Login
+<p align="center">
+  <img src="../assets/Readme_Img/login.jpg" alt="Login Page" width="100%" style="border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+  <br>
+  <em>Secure and minimal login page for smooth user authentication.</em>
+</p>
+
+---
+
 ## 🚀 Setup & Installation Guide
 
 

@@ -47,30 +47,43 @@
 
 > A closer look at the JOYBOARD Controller in all its handcrafted glory.
 
-**Front View**  
-![Front View](../assets/Readme_Img/controller.jpg)  
+---
+
+### **Front View**
+<p align="center">
+  <img src="../assets/Readme_Img/controller.jpg" alt="Front View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+</p>
 
 ---
 
-**Side Angle View**  
-![Top View](../assets/Readme_Img/side_view.jpg)  
+### **Side Angle View**
+<p align="center">
+  <img src="../assets/Readme_Img/side_view.jpg" alt="Side Angle View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+</p>
 
 ---
 
-**In Hand View**  
-![Top View](../assets/Readme_Img/in_hand.jpg)  
+### **In Hand View**
+<p align="center">
+  <img src="../assets/Readme_Img/in_hand.jpg" alt="In Hand View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+</p>
 
 ---
 
-**On View**  
-![Top View](../assets/Readme_Img/on_view.jpg)  
+### **On View**
+<p align="center">
+  <img src="../assets/Readme_Img/on_view.jpg" alt="On View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+</p>
 
 ---
 
-**Inside View**  
-![Inside View](../assets/Readme_Img/back_view.jpg)  
+### **Inside View**
+<p align="center">
+  <img src="../assets/Readme_Img/back_view.jpg" alt="Inside View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+</p>
 
 ---
+
 
 ## ✨ Features
 
@@ -108,6 +121,8 @@
 | LCD Display + I2C Module | 1     | Dedicated display for feedback    |
 | Miscellaneous         | —        | Wires, solder, connectors         |
 
+<br>
+
 > *Note: Quantities for toggle switches and other components may vary depending on your customization.*
 
 ---
@@ -119,7 +134,9 @@ A comprehensive wiring schematic is provided below to guide the assembly of all 
 - **Diagram style:** Schematic for clarity and ease of understanding.  
 - **Location:** Find the full wiring diagram below or view it [here](../assets/Readme_Img/Schematic.png).  
 
-<img src="../assets/Readme_Img/Schematic.png" width="800" alt="Wiring Diagram" />
+<img src="../assets/Readme_Img/Schematic.png" width="800" alt="Wiring Diagram" style ="border-radius:14px;" />
+
+<br>
 
 > Ensure correct pin mapping according to the Arduino sketch configuration for seamless functionality.
 
@@ -127,17 +144,25 @@ A comprehensive wiring schematic is provided below to guide the assembly of all 
 
 ### 📡 Setting Up the Receiver
 
-Use another Arduino Nano or Uno as your receiver. Connect only the NRF24L01 module to the following pins:
+Use a **second Arduino Nano or Uno** as the receiver. Only the **NRF24L01 module** is needed. Connect the pins as shown below:
 
-| NRF24L01 Pin | Arduino Pin |
-|--------------|-------------|
-| CE           | D9          |
-| CSN          | D10         |
-| MOSI         | D11         |
-| MISO         | D12         |
-| SCK          | D13         |
+| **NRF24L01 Pin** | **Arduino Pin** |
+|-----------------|----------------|
+| CE              | D9             |
+| CSN             | D10            |
+| MOSI            | D11            |
+| MISO            | D12            |
+| SCK             | D13            |
 
-No other components are needed on the receiver side.
+> ⚡ **Note:** No extra components are required on the receiver side.
+
+---
+
+<p align="center">
+  <img src="../assets/Readme_Img/receiver.jpg" alt="Receiver Wiring" width="100%" style="border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,0.25);">
+  <br>
+  <strong>Figure:</strong> Wiring diagram showing the connection between the Arduino Uno and the NRF24L01 for <strong>reciever</strong>.
+</p>
 
 ---
 

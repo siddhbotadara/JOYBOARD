@@ -38,17 +38,17 @@ The repository is organized into three main components:
 - **[joyboard_game/](joyboard_game/README.md)**  
   Python Pygame platformer game featuring multi-level gameplay and custom physics.
 
-  <img src = "assets/Readme_Img/game.jpg" width = "800" alt="Img of homepage of game">
+  <img src = "assets/Readme_Img/game.jpg" width = "800" alt="Img of homepage of game" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 
 - **[joyboard_web/](joyboard_web/README.md)**  
   Django-powered web application for user management, game analytics, and leaderboards.
 
-  <img src = "assets/Readme_Img/web.jpg" width = "800" alt="Img of homepage of website">
+  <img src = "assets/Readme_Img/web.jpg" width = "800" alt="Img of homepage of website" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 
 - **[joyboard_controller/](joyboard_controller/README.md)**  
   Arduino-based wireless controller using NRF24L01 modules to interact with the game.
 
-  <img src = "assets/Readme_Img/controller.jpg" width = "800" alt = "Img of controller">
+  <img src = "assets/Readme_Img/controller.jpg" width = "800" alt = "Img of controller" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 
 Each component has its own README file detailing installation, usage, and development instructions.
 

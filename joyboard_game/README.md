@@ -189,15 +189,15 @@ Here’s a sneak peek at some of JOYBOARD’s handcrafted levels!
 *(Levels 4 & 5 — we’ll let you explore them yourself 😉)*
 
 <p align="center">
-  <img src="../assets/Readme_Img/level1.jpg" alt="Level 1" width="100%" style="border-radius:10px; margin-bottom:20px;">
+  <img src="../assets/Readme_Img/level1.jpg" alt="Level 1" width="100%" style="border-radius:14px; margin-bottom:20px;">
 </p>
 
 <p align="center">
-  <img src="../assets/Readme_Img/level2.jpg" alt="Level 2" width="100%" style="border-radius:10px; margin-bottom:20px;">
+  <img src="../assets/Readme_Img/level2.jpg" alt="Level 2" width="100%" style="border-radius:14px; margin-bottom:20px;">
 </p>
 
 <p align="center">
-  <img src="../assets/Readme_Img/level3.jpg" alt="Level 3" width="100%" style="border-radius:10px; margin-bottom:20px;">
+  <img src="../assets/Readme_Img/level3.jpg" alt="Level 3" width="100%" style="border-radius:14px; margin-bottom:20px;">
 </p>
 
 > Levels 4 & 5 are waiting for you inside the game! 🎯
