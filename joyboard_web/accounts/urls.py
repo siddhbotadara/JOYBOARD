@@ -4,7 +4,6 @@ from accounts import views
 from django.conf import settings
 from django.conf.urls.static import static
 import os
-from .views import create_temp_superuser
 
 urlpatterns = [
     path('', views.index, name='home'),                 
@@ -29,8 +28,6 @@ urlpatterns = [
     path(settings.API_LOGIN_PATH, views.api_login, name='api-login'),  
     path(settings.API_SUBMIT_SCORE_PATH, views.submit_score, name='submit_score'),
     path(settings.API_GET_CONFIG,views.get_config, name='get-config'),
-
-    path("create-admin/", create_temp_superuser),
 ]
 
 if settings.DEBUG:

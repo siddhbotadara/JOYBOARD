@@ -13,16 +13,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from django.http import StreamingHttpResponse, Http404
-from django.contrib.auth import get_user_model
-
-def create_temp_superuser(request):
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("admin", "newadmin@example.com", "StrongPassword123")
-        return HttpResponse("Superuser created!")
-    else:
-        return HttpResponse("User already exists.")
-
 
 def index(request):
     return render(request, 'index.html')
