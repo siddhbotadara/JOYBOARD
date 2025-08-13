@@ -1,12 +1,12 @@
 <p align="center">
 
   <!-- Banner Image -->
-  <img src="assets/Readme_Img/banner_4.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
+  <img src="assets/Readme_Img/banner_5.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
 
   <!-- Title -->
   <br>
   <br>
-  <strong style="font-size:3.5rem;">JOYBOARD</strong>
+  <strong style="font-size:4.5rem;">JOYBOARD</strong>
   <br>
 
   <!-- Tagline -->
@@ -17,7 +17,6 @@
 
 <br>
 
-[![Version](https://img.shields.io/badge/Version-1.0.0.0-blue.svg)](#)
 [![GitHub Stars](https://img.shields.io/github/stars/siddhbotadara/JOYBOARD.svg?cacheBust=1)](https://github.com/siddhbotadara/JOYBOARD/stargazers)
 [![Downloads](https://img.shields.io/badge/Downloads-2-orange.svg)](https://joyboard.onrender.com)
 [![Website](https://img.shields.io/badge/Website-joyboard.onrender.com-brightgreen.svg)](https://joyboard.onrender.com)
