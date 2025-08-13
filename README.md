@@ -1,13 +1,18 @@
-<div style="text-align: center;">
+<p align="center">
+
   <!-- Banner Image -->
-  <img src="assets/Readme_Img/banner.png" alt="JOYBOARD Banner" 
-       style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;" />
-  <!-- Text Below Banner -->
-  <h1 style="margin: 35px 0 5px; font-size: 2rem;">JOYBOARD</h1>
-  <p style="margin: 0; font-size: 1rem; color: #666;">
-    Where Gaming Meets Web & IoT — Play, Compete, and Connect.
-  </p>
-</div>
+  <img src="assets/Readme_Img/banner_3.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
+
+  <!-- Title -->
+  <br>
+  <strong style="font-size:2.2rem;">JOYBOARD</strong>
+  <br><br>
+
+  <!-- Tagline -->
+  Where <strong>Gaming</strong> Meets <strong>Web</strong> & <strong>IoT</strong> — Play, Compete, and Connect.
+
+</p>
+
 
 <br>
 
