@@ -43,7 +43,7 @@
 
 ## Overview
 
-JOYBOARD is a fast-paced 2D platformer built with Python and Pygame, protected by server. Play seamlessly using keyboard or the custom Arduino wireless controller.
+JOYBOARD is a fast-paced 2D platformer developed in Python using an **object-oriented design** and Pygame, with server-side protection. Play seamlessly using keyboard or the custom Arduino wireless controller.
 Face challenging levels with smart enemies, collectibles, and timed obstacles that test your skills.
 Compete on a real-time leaderboard tracking your best times — every run is a fight for the top spot.
 More than a game, JOYBOARD is a competitive arena where you challenge friends and prove your mastery.
