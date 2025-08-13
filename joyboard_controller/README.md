@@ -74,15 +74,15 @@
 
 ## ✨ Features
 
-- 📡 **Wireless Freedom** — Uses nRF24L01+PA+LNA module for stable, long-range communication up to 2 KM.  
+- 📡 **Wireless Freedom** — Uses nRF24L01+PA+LNA module for stable, long-range communication **up to 2 KM**.  
 
-- ⚡ **Ultra-Low Latency** — Ensures responsive control with under 10 ms input delay.  
-- 📊 **Multi-Channel Support** — Supports up to 12 independent channels, enabling complex control schemes.  
+- ⚡ **Ultra-Low Latency** — Ensures responsive control with **under 10 ms** input delay.  
+- 📊 **Multi-Channel Support** — Supports up to **12 independent channels**, enabling complex control schemes.  
 - 🎮 **Precision Controls** — Equipped with dual joysticks, tactile buttons, toggle switches, and potentiometers for versatile input options.  
-- 🪵 **Custom Build** — Handcrafted wooden chassis combines durability with an eco-friendly, premium tactile finish.  
+- 🪵 **Custom Build** — Handcrafted **wooden chassis** combines durability with an eco-friendly, premium tactile finish.  
 - 💻 **Advanced Feedback** — Features a dedicated LCD display providing real-time output and system info, plus a battery level indicator for convenient monitoring.  
 - 🔔 **Audible Alerts** — Integrated buzzer for alarms, notifications, and status alerts.  
-- 🔋 **Long Battery Life** — Powered by two 18650 Li-ion batteries, delivering up to 15+ hours of continuous operation.  
+- 🔋 **Long Battery Life** — Powered by two 18650 Li-ion batteries, delivering up to **15+ hours** of continuous operation.  
 - 🔧 **Modular Design** — Easily replace or upgrade individual components (joysticks, buttons, antenna) without rebuilding the entire controller.  
 - 💰 **Cost-Effective** — Offers high-end features and build quality at a price point significantly below market alternatives.  
 - 🛠 **Fully Open Source** — Hardware and firmware are fully open for customization, modification, and community-driven improvements.
