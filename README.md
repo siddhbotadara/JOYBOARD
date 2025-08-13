@@ -3,15 +3,14 @@
   <!-- Banner Image -->
   <img src="assets/Readme_Img/banner_5.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
 
-  <!-- Title -->
   <br>
   <br>
   <strong style="font-size:4.5rem;">JOYBOARD</strong>
-  <br>
+  <br> 
 
   <!-- Tagline -->
   <div align="center" style="font-size:1.5rem; color:#666; max-width:600px; margin:auto;">
-    Where <strong>Gaming</strong> Meets <strong>Web</strong> & <strong>IoT</strong> — Play, Compete, and Connect.
+    Where Gaming Meets Web & IoT — Play, Compete, and Connect.
   </div>
 </p>
 

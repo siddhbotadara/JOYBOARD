@@ -1,12 +1,18 @@
-<div style="display: flex; align-items: center; justify-content: space-between;">
-  <div style="display: flex; flex-direction: column; justify-content: center; transform: translateY(5px);">
-    <h1 style="margin: 0; font-size: 2rem;">joyboard_web</h1>
-    <p style="margin: 0; font-size: 1rem; color: #666;">
+<p align="center">
+
+  <!-- Banner Image -->
+  <img src="../assets/Readme_Img/banner_5.png" alt="JOYBOARD Banner" width="100%" style="max-height:300px; object-fit:cover; border-radius:10px;" />
+
+  <br>
+  <br>
+  <strong style="font-size:4.5rem;">joyboard_web</strong>
+  <br>
+
+  <!-- Tagline -->
+  <div align="center" style="font-size:1.5rem; color:#666; max-width:600px; margin:auto;">
     From Lobby to Leaderboard — All in One Place.
-    </p>
   </div>
-  <img src="../assets/Readme_Img/logo_image.png" alt="Logo" width="250" style = "transform: translateY(-10px);" />
-</div>
+</p>
 
 <br>
 
