@@ -5,16 +5,15 @@
 
   <!-- Title -->
   <br>
-  <strong style="font-size:2.5rem;">JOYBOARD</strong>
-  <br><br>
+  <br>
+  <strong style="font-size:3.5rem;">JOYBOARD</strong>
+  <br>
 
   <!-- Tagline -->
-  <div align="center" style="font-size:1rem; color:#666; max-width:600px; margin:auto;">
+  <div align="center" style="font-size:1.5rem; color:#666; max-width:600px; margin:auto;">
     Where <strong>Gaming</strong> Meets <strong>Web</strong> & <strong>IoT</strong> — Play, Compete, and Connect.
   </div>
-
 </p>
-
 
 <br>
 
@@ -25,8 +24,6 @@
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 [![OS](https://img.shields.io/badge/OS-Windows-purple.svg)](#)
 [![Email](https://img.shields.io/badge/Email-teamjoyboard%40gmail.com-red.svg)](mailto:siddhbotadara@gmail.com)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/your-project-id)](https://www.codacy.com/gh/user/repo/dashboard)
-
 
 ---
 
