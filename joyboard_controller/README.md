@@ -49,37 +49,37 @@
 
 ---
 
-### **Front View**
+### **Front View and Controls**
 <p align="center">
-  <img src="../assets/Readme_Img/controller.jpg" alt="Front View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src="../assets/Readme_Img/Labelled_Controller.png" alt="Front View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 </p>
 
 ---
 
 ### **Side Angle View**
 <p align="center">
-  <img src="../assets/Readme_Img/side_view.jpg" alt="Side Angle View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src="../assets/Readme_Img/side_view_ai.png" alt="Side Angle View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 </p>
 
 ---
 
 ### **In Hand View**
 <p align="center">
-  <img src="../assets/Readme_Img/in_hand.jpg" alt="In Hand View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src="../assets/Readme_Img/in_hand_ai.png" alt="In Hand View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 </p>
 
 ---
 
 ### **On View**
 <p align="center">
-  <img src="../assets/Readme_Img/on_view.jpg" alt="On View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src="../assets/Readme_Img/on_view_ai.png" alt="On View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 </p>
 
 ---
 
 ### **Inside View**
 <p align="center">
-  <img src="../assets/Readme_Img/back_view.jpg" alt="Inside View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src="../assets/Readme_Img/back_view_ai.png" alt="Inside View" width="100%" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 </p>
 
 ---

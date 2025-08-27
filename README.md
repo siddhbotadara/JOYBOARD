@@ -54,7 +54,7 @@ The repository is organized into three main components:
 
   👉 [Open README](joyboard_controller/README.md)
 
-  <img src = "assets/Readme_Img/controller.jpg" width = "800" alt = "Img of controller" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+  <img src = "assets/Readme_Img/controller_ai.png" width = "800" alt = "Img of controller" style="border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
 
 Each component has its own README file detailing installation, usage, and development instructions.
 
