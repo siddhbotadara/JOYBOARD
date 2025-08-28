@@ -97,7 +97,17 @@ Feel free to explore each component’s README for step-by-step setup and usage 
 
 ## 🎥 Demo
 
-My link to demo
+<a href="https://youtu.be/VdVrqw_iEfk?si=b-tm84YHTepZkzAi" target="_blank">
+  <img 
+    src="https://img.youtube.com/vi/VdVrqw_iEfk/maxresdefault.jpg" 
+    alt="Watch the video" 
+    width="800" 
+    style="border-radius:14px; display:block; margin:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+</a>
+
+### 📺 Channel  
+
+Check out my [YouTube Channel](https://www.youtube.com/@JOYBOARDStudios) for this project.
 
 ---
 
