@@ -10,6 +10,7 @@ from pygame.sprite import Group
 from settings import *
 from tiles import manage_level_map, main_tile_group
 from tile_map import *
+import settings
 
 enemy_group = pygame.sprite.Group() 
 
@@ -148,7 +149,7 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y, enemy_bullets_group: Group, player_obj, initial_health=3, is_walking=False):
         super().__init__()
 
-        self.animation_speed = 0.15
+        self.animation_speed = 0.20
         self.current_sprite = 0
         self.facing_right = random.choice([True, False])
         self.on_ground = False
@@ -293,8 +294,12 @@ class Enemy(pygame.sprite.Sprite):
         self.shoot_cooldown -= 1
         if self.on_ground and not self.is_dead:
             player_distance_x = abs(self.rect.centerx - self.player_obj.rect.centerx)
+            player_distance_y = abs(self.rect.centery - self.player_obj.rect.centery)
             # Check if player is within shooting range AND cooldown allows a shot
-            if player_distance_x <= self.shoot_range and self.shoot_cooldown <= 0:
+            vertical_shoot_threshold = ENEMY_HEIGHT
+            if (player_distance_x <= self.shoot_range and 
+                player_distance_y <= vertical_shoot_threshold and 
+                self.shoot_cooldown <= 0):
                 if self.player_obj.rect.centerx < self.rect.centerx:
                     self.facing_right = False
                 else:
@@ -379,8 +384,17 @@ def spawn_enemies_for_level(current_level, enemy_bullets_group: Group, player_ob
             # Check spacing with already placed enemies
             current_min_distance_blocks = 3 
             if is_position_valid(px, py, placed_enemies_temp_group, min_distance_blocks=current_min_distance_blocks):
-                temp_enemy = Enemy(px, py, enemy_bullets_group, player_obj, initial_health=enemy_health_for_level, is_walking=False)
-                
+                mult = 1.0
+                if hasattr(player_obj, 'health_bar') and hasattr(settings, "_DDA_ENEMY_HEALTH_MULTIPLIER"):
+                    try:
+                        mult = settings._DDA_ENEMY_HEALTH_MULTIPLIER
+                    except Exception:
+                        mult = 1.0
+
+                # compute health to pass
+                adjusted_enemy_health = max(1, int(round(enemy_health_for_level * mult)))
+                temp_enemy = Enemy(px, py, enemy_bullets_group, player_obj, initial_health=adjusted_enemy_health, is_walking=False)
+
                 temp_enemy.apply_gravity()
                 temp_enemy.check_collisions_with_tiles(main_tile_group, horizontal_movement=False)
 

@@ -37,7 +37,7 @@ def download_joyboard_zip(request):
     if response.status_code == 200:
         # Stream it to the user
         resp = StreamingHttpResponse(response.iter_content(chunk_size=8192), content_type='application/zip')
-        resp['Content-Disposition'] = 'attachment; filename="Joyboard_Pack.zip"'
+        resp['Content-Disposition'] = 'attachment; filename="JOYBOARD_GAMEPACK.zip"'
         return resp
     else:
         raise Http404("Download not available at the moment.")

@@ -172,19 +172,29 @@ class Player(pygame.sprite.Sprite):
         if self.is_dying:
             return
 
+        applied = False
         if damage_type == 'lava':
             if self.lava_damage_cooldown <= 0:
-                self.health_bar.take_damage(amount)
+                # reduce HP
+                new_hp = max(0, self.health_bar.hp - amount)
+                self.health_bar.hp = new_hp
                 self.lava_damage_cooldown = MAX_LAVA_DAMAGE_COOLDOWN
-        elif self.damage_cooldown <= 0:
-            self.health_bar.take_damage(amount)
-            self.damage_cooldown = self.max_damage_cooldown
+                applied = True
+        else:
+            if self.damage_cooldown <= 0:
+                new_hp = max(0, self.health_bar.hp - amount)
+                self.health_bar.hp = new_hp
+                self.damage_cooldown = self.max_damage_cooldown
+                applied = True
 
+        # If HP reached zero then trigger dying
         if self.health_bar.hp <= 0 and not self.is_dying:
             self.is_dying = True
             self.current_sprite = 0
             self.velocity = vector(0, 0)
             self.acceleration = vector(0, 0)
+            # ensure HP is exactly 0
+            self.health_bar.hp = 0
 
     def update(self):
         # Update UI bars
@@ -208,6 +218,7 @@ class Player(pygame.sprite.Sprite):
             self.acceleration = vector(0, 0)
         
         # --- Movement Handling ---
+
         # Read joystick values
         joy2_x = get_joystick_2_x()    #left/right
         joy1_y = get_joystick_1_y()   #jump/shoot
@@ -239,7 +250,7 @@ class Player(pygame.sprite.Sprite):
             self.shoot()
 
 
-        # Keyboard input as well
+        # Keyboard input
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_LEFT]:
@@ -266,7 +277,6 @@ class Player(pygame.sprite.Sprite):
         self.velocity.y = min(self.velocity.y, self.terminal_velocity)
 
         self.position.x += self.velocity.x
-        self.position.y += self.velocity.y
 
         if self.position.x < 0:
             self.position.x = 0
@@ -275,14 +285,16 @@ class Player(pygame.sprite.Sprite):
             self.position.x = window_width - self.rect.width
             self.velocity.x = 0
 
-        self.rect.x = int(self.position.x)
+        self.rect.x = int(round(self.position.x))
         self.check_horizontal_collisions()  
 
-        self.rect.y = int(self.position.y)
+
+        self.position.y += self.velocity.y
+
+        self.rect.y = int(round(self.position.y))
         self.check_vertical_collisions()
 
-
-        # Jump input after on_ground updated by vertical collisions
+        # Jump input
         if keys[pygame.K_SPACE] or keys[pygame.K_UP]:
             self.Jump()
 
@@ -319,7 +331,7 @@ class Player(pygame.sprite.Sprite):
 
     def play_animation(self):
         anim_speeds = {
-            'idle': 0.1,
+            'idle': 0.05,
             'run': 0.2,
             'jump': 0.1,
             'shoot': self.shoot_animation_speed,
@@ -339,34 +351,35 @@ class Player(pygame.sprite.Sprite):
         self.animate(right_list, left_list, speed)
 
     def animate(self, right_list, left_list, speed):
-        sprites = right_list if self.facing_right else left_list
-        if not sprites:
-            return
+            sprites = right_list if self.facing_right else left_list
+            if not sprites:
+                return
 
-        # Preserve exact position before changing image
-        old_center = self.rect.center
+            # Preserve the exact midbottom position. This is the crucial anchor point 
+            # (where the feet meet the ground) that should not move when the image changes.
+            old_midbottom = self.rect.midbottom 
 
-        # Update sprite index
-        self.current_sprite += speed
-        i = int(self.current_sprite)
+            # Update sprite index
+            self.current_sprite += speed
+            i = int(self.current_sprite)
 
-        if i >= len(sprites):
-            if self.is_dying:
-                i = len(sprites) - 1
-                self.death_animation_finished = True
-            else:
-                self.current_sprite = 0
-                i = 0
+            if i >= len(sprites):
+                if self.is_dying:
+                    i = len(sprites) - 1
+                    self.death_animation_finished = True
+                else:
+                    self.current_sprite = 0
+                    i = 0
 
-        # Update image to the new frame
-        self.image = sprites[i]
+            # Update image to the new frame
+            self.image = sprites[i]
 
-        # Recreate mask for pixel-perfect collisions
-        self.mask = pygame.mask.from_surface(self.image)
+            # Recreate mask for pixel-perfect collisions
+            self.mask = pygame.mask.from_surface(self.image)
 
-        # Keep visual position consistent
-        self.rect = self.image.get_rect()
-        self.rect.center = old_center
+            # Re-set the rect's position using the saved midbottom value.
+            # This prevents the sprite from 'jumping' or 'shaking' as different-sized frames load.
+            self.rect = self.image.get_rect(midbottom=old_midbottom)
 
     def check_horizontal_collisions(self):
         collided_tiles = pygame.sprite.spritecollide(self, main_tile_group, False, pygame.sprite.collide_mask)

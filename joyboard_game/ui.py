@@ -14,6 +14,7 @@ from player import stop_all_player_sounds
 # Global dictionaries/variables to store preloaded/pre-rendered assets
 _PRELOADED_BACKGROUNDS = {}
 _TITLE_TEXT_BASE = None
+_HEADLINE_TEXT_BASE = None
 _START_TEXT_BASE_1 = None
 _START_TEXT_BASE_2 = None
 _SOUND_TEXT_BASE_1 = None
@@ -28,6 +29,8 @@ _GAME_WON_FONT = None
 _FINAL_TIME_FONT = None 
 _PAUSE_FONT = None 
 _PAUSE_INSTRUCTION_FONT = None
+_CONTROLS_TITLE_FONT = None
+_CONTROLS_INSTRUCTION_FONT = None
 
 is_muted = False
 
@@ -45,7 +48,7 @@ def initialize_ui_assets():
     global _PRELOADED_BACKGROUNDS, _TITLE_TEXT_BASE, _START_TEXT_BASE_1,_START_TEXT_BASE_2, _SOUND_TEXT_BASE_1,_SOUND_TEXT_BASE_2, \
            _STRT_IMG_PRELOADED, _SOUND_IMG_PRELOADED, _NOSOUND_IMG_PRELOADED, _TRANSITION_FONT, \
            _GAME_OVER_FONT, _RESTART_FONT, _GAME_WON_FONT, _FINAL_TIME_FONT, \
-           _PAUSE_FONT, _PAUSE_INSTRUCTION_FONT
+           _PAUSE_FONT, _PAUSE_INSTRUCTION_FONT, _CONTROLS_TITLE_FONT, _CONTROLS_INSTRUCTION_FONT, _HEADLINE_TEXT_BASE
 
     # Pre-loading background images
     _PRELOADED_BACKGROUNDS = {
@@ -59,21 +62,26 @@ def initialize_ui_assets():
 
     # Pre-render text
     pygame.font.init()
-    title_font = pygame.font.Font(home_page_font_path, 130)
+    title_font = pygame.font.Font(home_page_font_path, 135)
     _TITLE_TEXT_BASE = title_font.render("JoyBoard", True, (255, 255, 255), None)
+    
+    headline_font = pygame.font.Font(home_page_font_path, 35)
+    _HEADLINE_TEXT_BASE = headline_font.render("AI-POWERED 2D PLATFORMER", True, (230, 231, 255), None)
 
     start_font_1 = pygame.font.Font(home_page_font_path, 35)
     _START_TEXT_BASE_1 = start_font_1.render("PRESS 'Enter'", True, "#FFD966", None)
 
     start_font_2 = pygame.font.Font(home_page_font_path, 35)
-    _START_TEXT_BASE_2 = start_font_2.render("PULL Right Toggle", True, "#FFD966", None)
+    _START_TEXT_BASE_2 = start_font_2.render("[Toggle Up]", True, "#FFD966", None)
 
     sound_font_1 = pygame.font.Font(home_page_font_path, 25)
     _SOUND_TEXT_BASE_1 = sound_font_1.render("PRESS 'm'", True, "#FFD966", None)
 
     sound_font_2 = pygame.font.Font(home_page_font_path, 25)
-    _SOUND_TEXT_BASE_2 = sound_font_2.render("vary Pot", True, "#FFD966", None)
+    _SOUND_TEXT_BASE_2 = sound_font_2.render("[Turn Pot]", True, "#FFD966", None)
 
+    _CONTROLS_TITLE_FONT = pygame.font.Font(home_page_font_path, 60)
+    _CONTROLS_INSTRUCTION_FONT = pygame.font.Font(home_page_font_path, 25)
     _TRANSITION_FONT = pygame.font.Font(home_page_font_path, 80)
     _GAME_OVER_FONT = pygame.font.Font(home_page_font_path, 100)
     _RESTART_FONT = pygame.font.Font(home_page_font_path, 40)
@@ -86,7 +94,6 @@ def initialize_ui_assets():
     _STRT_IMG_PRELOADED = pygame.transform.scale(pygame.image.load(home_page_start_path).convert_alpha(), (400,400))
     _SOUND_IMG_PRELOADED = pygame.transform.scale(pygame.image.load(home_page_sound_path).convert_alpha(), (100,100))
     _NOSOUND_IMG_PRELOADED = pygame.transform.scale(pygame.image.load(home_page_nosound_path).convert_alpha(), (100,100))
-
 
 # Background based on level
 def get_background(current_level):
@@ -119,7 +126,6 @@ def level_background_music():
         pygame.mixer.music.set_volume(get_volume_trans())
         pygame.mixer.music.play(-1)
 
-
 # Homepage - Text
 def Homepage_text(width,height):
     if _TITLE_TEXT_BASE is None or _START_TEXT_BASE_1 is None or _SOUND_TEXT_BASE_1 is None:
@@ -131,13 +137,17 @@ def Homepage_text(width,height):
     sound_text_flickered_1 = flicker_surface(_SOUND_TEXT_BASE_1, 3)
     sound_text_flickered_2 = flicker_surface(_SOUND_TEXT_BASE_2, 3)
 
-    title_text_rect = _TITLE_TEXT_BASE.get_rect(center=(width / 2, height - 615))
+    title_text_rect = _TITLE_TEXT_BASE.get_rect(center=(width / 2, height - 635))
+    headline_text_rect = _HEADLINE_TEXT_BASE.get_rect(center=(width / 2, height - 565))
     start_text_rect_1 = start_text_flickered_1.get_rect(center=(width / 2, height / 2 + 155))
     start_text_rect_2 = start_text_flickered_2.get_rect(center=(width / 2, height / 2 + 200))
-    sound_text_rect_1 = sound_text_flickered_1.get_rect(center=(width - 58, 110))
-    sound_text_rect_2 = sound_text_flickered_2.get_rect(center=(width - 58, 140))
+    sound_text_rect_1 = sound_text_flickered_1.get_rect(center=(width - 60, 110))
+    sound_text_rect_2 = sound_text_flickered_2.get_rect(center=(width - 65, 140))
 
-    return _TITLE_TEXT_BASE, title_text_rect, start_text_flickered_1,start_text_flickered_2, start_text_rect_1,start_text_rect_2, sound_text_flickered_1,sound_text_flickered_2, sound_text_rect_1, sound_text_rect_2
+    controls_text = _CONTROLS_INSTRUCTION_FONT.render("Press 'Q' -> Controls", True, (200, 200, 200))
+    controls_rect = controls_text.get_rect(center=(width / 2, height - 50))
+
+    return _TITLE_TEXT_BASE, title_text_rect, _HEADLINE_TEXT_BASE, headline_text_rect, start_text_flickered_1,start_text_flickered_2, start_text_rect_1,start_text_rect_2, sound_text_flickered_1,sound_text_flickered_2, sound_text_rect_1, sound_text_rect_2, controls_text, controls_rect
 
 # Homepage - Icons
 def Homepage_icons(width,height):
@@ -148,8 +158,8 @@ def Homepage_icons(width,height):
     start_image_flickered = flicker_surface(_STRT_IMG_PRELOADED, 0)
 
     start_image_rect = start_image_flickered.get_rect(center=(width/2,height/2))
-    sound_image_rect = _SOUND_IMG_PRELOADED.get_rect(topright=(width,0))
-    nosound_image_rect = _NOSOUND_IMG_PRELOADED.get_rect(topright=(width,0))
+    sound_image_rect = _SOUND_IMG_PRELOADED.get_rect(topright=(width-2,0))
+    nosound_image_rect = _NOSOUND_IMG_PRELOADED.get_rect(topright=(width-2,0))
 
     return start_image_flickered, start_image_rect, _SOUND_IMG_PRELOADED, sound_image_rect, _NOSOUND_IMG_PRELOADED, nosound_image_rect
 
@@ -162,7 +172,7 @@ def flicker_surface(surface, speed, min_alpha=100, max_alpha=255):
     return flickered
 
 # Creating an oqaque screen, stating level details and time for get ready 3 seconds
-def transition_level(screen, level_number, duration_frames=180):
+def transition_level(screen, level_number, duration_frames=180, ai_prediction_text="Level Loading..."):
     if _TRANSITION_FONT is None:
         raise RuntimeError("Error loading Transition font.")
     
@@ -191,6 +201,24 @@ def transition_level(screen, level_number, duration_frames=180):
     get_ready_text_surface = get_ready_font.render("GET READY!", True, (255, 255, 0))
     get_ready_text_rect = get_ready_text_surface.get_rect(center=(window_width / 2, window_height / 2 + 80))
 
+    # Choose color based on message
+    if "Increased" in ai_prediction_text:
+        color = (255, 80, 80)     # Bright Red
+    elif "Decreased" in ai_prediction_text:
+        color = (80, 255, 120)    # Green
+    else:
+        color = (80, 200, 255)    # Light Blue
+
+    # AI Info
+    ai_font = pygame.font.Font(home_page_font_path, 35)
+    ai_text_info = ai_font.render(f"JOYBOARD AI MODEL Prediction --> {ai_prediction_text}", True, color)
+    ai_text_info_rect = ai_text_info.get_rect(center=(window_width / 2, window_height / 2 + 240))
+
+    # tip
+    tip_font = pygame.font.Font(home_page_font_path, 25)
+    tip_info = tip_font.render("Tip: Hold the fire key — your machine gun goes full paw paw paw!", True, (255, 217, 102))
+    tip_info_rect = tip_info.get_rect(center=(window_width / 2, window_height - 40))
+
     # Animation loop for transition
     for frame in range(duration_frames):
         for event in pygame.event.get():
@@ -203,10 +231,14 @@ def transition_level(screen, level_number, duration_frames=180):
         
         # Draw the text
         screen.blit(level_text_surface, level_text_rect)
+        screen.blit(ai_text_info, ai_text_info_rect)
         
         # Make "GET READY!" text flicker
         flickered_ready_text = flicker_surface(get_ready_text_surface, 5)
         screen.blit(flickered_ready_text, get_ready_text_rect)
+
+        flickered_tip_text = flicker_surface(tip_info,5)
+        screen.blit(flickered_tip_text, tip_info_rect)
 
         pygame.display.flip()
         pygame.time.Clock().tick(fps)
@@ -420,7 +452,7 @@ def game_over(surface, width, height):
     game_over_rect = game_over_text.get_rect(center=(width / 2, height / 2 - 50))
 
     # Restart instruction text
-    restart_text = _RESTART_FONT.render("Press 'R'/Push Toggle Down to Restart", True, (255, 255, 255)) 
+    restart_text = _RESTART_FONT.render("Press 'R' or 'H' / Toggle or Button Down --> Restart/Homepage", True, (255, 255, 255)) 
     restart_rect = restart_text.get_rect(center=(width / 2, height / 2 + 50))
 
     surface.blit(overlay, (0, 0))
@@ -459,7 +491,7 @@ def game_won(surface, width, height, total_time):
     total_time_rect = total_time_text.get_rect(center=(width / 2, height / 2))
 
     # Restart instruction text
-    restart_text = _RESTART_FONT.render("Press 'R'/Push Toggle Down to Restart", True, (255, 255, 255))  
+    restart_text = _RESTART_FONT.render("Press 'H' / Right Button --> Homepage", True, (255, 255, 255))  
     restart_rect = restart_text.get_rect(center=(width / 2, height / 2 + 100))
 
     surface.blit(overlay, (0, 0))
@@ -488,13 +520,67 @@ def pause_screen(surface, width, height):
     paused_rect = paused_text.get_rect(center=(width / 2, height / 2 - 50))
 
     # Instructions text
-    resume_text = _PAUSE_INSTRUCTION_FONT.render("Press 'ESC'/Button-1 to Resume", True, (200, 200, 200))
+    resume_text = _PAUSE_INSTRUCTION_FONT.render("Press 'ESC' / Left Button -> Resume", True, (200, 200, 200))
     resume_rect = resume_text.get_rect(center=(width / 2, height / 2 + 20))
 
-    homepage_text = _PAUSE_INSTRUCTION_FONT.render("Press 'H'/Button-2 for Homepage", True, (200, 200, 200))
+    homepage_text = _PAUSE_INSTRUCTION_FONT.render("Press 'H' / Right Button -> Homepage", True, (200, 200, 200))
     homepage_rect = homepage_text.get_rect(center=(width / 2, height / 2 + 60))
+
+    control_text = _PAUSE_INSTRUCTION_FONT.render("Press 'Q' -> Controls", True, (200, 200, 200))
+    control_rect = control_text.get_rect(center=(width / 2, height / 2 + 100))
 
     surface.blit(overlay, (0, 0))
     surface.blit(paused_text, paused_rect)
     surface.blit(resume_text, resume_rect)
     surface.blit(homepage_text, homepage_rect)
+    surface.blit(control_text,control_rect)
+
+def controls_screen(surface, width, height):
+    if _CONTROLS_TITLE_FONT is None or _CONTROLS_INSTRUCTION_FONT is None:
+        raise RuntimeError("Error loading Controls fonts.")
+
+    stop_all_player_sounds()
+
+    overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+    overlay.fill((0, 0, 0, 220)) # Darker overlay for focus
+    
+    surface.blit(overlay, (0, 0))
+
+    # --- Title ---
+    title_text = _CONTROLS_TITLE_FONT.render("Controls", True, (0, 255, 255))
+    title_rect = title_text.get_rect(center=(width / 2, height / 2 - 275))
+    surface.blit(title_text, title_rect)
+
+    # --- Controls List ---
+    controls_list = [
+        ("Enter / Space", "Start The Game"),
+        ("Space / ^", "Jump"),
+        ("LEFT Arrow / <", "Move Left"),
+        ("RIGHT Arrow / >", "Move Right"),
+        ("F", "Fire Weapon"),
+        ("ESC", "Pause / Resume Game"),
+        ("Q", "Open/Close Controls Screen"),
+        ("H (when Paused)", "Return to Homepage"),
+        ("R (when Game Over)", "Restart"),
+        ("M", "Mute / Unmute"),
+    ]
+    
+    start_y = height / 2 - 160
+    line_height = 40
+    
+    # Render and blit each control instruction
+    for i, (key, action) in enumerate(controls_list):
+        # Key Text
+        key_text = _CONTROLS_INSTRUCTION_FONT.render(key, True, (255, 255, 0))
+        key_rect = key_text.get_rect(midright=(width / 2 - 10, start_y + i * line_height))
+        surface.blit(key_text, key_rect)
+
+        # Action Text
+        action_text = _CONTROLS_INSTRUCTION_FONT.render(action, True, (255, 255, 255))
+        action_rect = action_text.get_rect(midleft=(width / 2 + 10, start_y + i * line_height))
+        surface.blit(action_text, action_rect)
+
+    # --- Exit Instruction ---
+    exit_text = _CONTROLS_INSTRUCTION_FONT.render("Press 'Q' to Close", True, (200, 200, 200))
+    exit_rect = exit_text.get_rect(center=(width / 2, height - 50))
+    surface.blit(exit_text, exit_rect)
