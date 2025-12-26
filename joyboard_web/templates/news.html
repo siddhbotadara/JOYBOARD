@@ -30,7 +30,59 @@
   <!-- Cards -->
   <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 max-w-7xl mx-auto">
 
-    <!-- JoyBoard Launch Card -->
+    <!-- JoyBoard New Feature Card -->
+    <article
+      class="relative group bg-[#111827] border-4 border-[#14213D] rounded-3xl p-8 shadow-md
+             hover:shadow-[0_0_20px_4px_rgba(59,130,246,0.7)] transition-shadow duration-500
+             transform hover:-translate-y-3 cursor-default
+             motion-safe:animate-fadeInUp delay-400
+             hover:scale-[1.03] hover:brightness-110 mt-4"
+      tabindex="0"
+      aria-label="News article: JoyBoard New Feature"
+    >
+
+      <!-- Basic Info -->
+      <div class="flex justify-between items-center mb-6 font-section">
+        <span
+          class="text-xs uppercase tracking-widest text-[#3B82F6] font-semibold select-none
+                 bg-[#14213D] px-3 py-1 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.4)]
+                 transition-all duration-300 ease-in-out
+                 group-hover:scale-105 group-hover:brightness-125"
+        >
+          Announcement
+        </span>
+        <time datetime="2025-07-24" class="text-xs text-blue-400 font-mono select-none tracking-wide">
+          Dec 26, 2025
+        </time>
+      </div>
+
+      <!-- Main Title -->
+      <h2
+        class="text-4xl md:text-4xl font-extrabold group-hover:text-[#3B82F6] text-[#FCA311] transition-colors duration-300 leading-snug tracking-tight
+               motion-safe:animate-slideInLeft"
+      >
+        BIG Update: New Version Is Out!
+      </h2>
+
+      <!-- Info -->
+      <div class="mt-4 flex flex-wrap items-center text-sm text-blue-300 font-light space-x-4 select-none tracking-wide">
+        <span>By Dev Team</span>
+        <span>•</span>
+        <span>1/2 min read</span>
+      </div>
+
+      <!-- Content -->
+      <p
+        class="mt-6 text-blue-200 leading-relaxed font-light tracking-wide whitespace-pre-line font-body text-sm
+               transition-colors duration-300
+               group-hover:text-white"
+      >
+        JOYBOARD now includes an <span class="font-semibold"> AI-powered Dynamic Difficulty Adjustment system </span> that adapts gameplay in real time based on player performance. The game learns how you play and adjusts challenges to keep every run fair, engaging, and competitive. Jump in and feel the difference.
+      </p>
+
+    </article>
+
+        <!-- JoyBoard Launch Card -->
     <article
       class="relative group bg-[#111827] border-4 border-[#14213D] rounded-3xl p-8 shadow-md
              hover:shadow-[0_0_20px_4px_rgba(59,130,246,0.7)] transition-shadow duration-500
@@ -83,5 +135,6 @@
     </article>
 
   </div>
+
 </section>
 {% endblock %}

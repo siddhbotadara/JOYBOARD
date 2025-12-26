@@ -19,52 +19,111 @@
 </head>
 <body class="bg-[#000000]">
 
-    <!-- NavBar -->
-    <nav class="bg-[#000000] opacity-100 flex p-[16px] justify-between items-center sticky top-0 z-50 shadow-md">
-        <a href="/" class="font-logo font-extrabold text-3xl tracking-[0.2em] uppercase text-[#FCA311] hover:scale-104 hover:brightness-110 hover:drop-shadow-[0_0_15px_rgba(252,163,17,0.8)]">JOYBOARD</a>
+    <nav class="bg-[#000000] flex px-4 py-3 justify-between items-center sticky top-0 z-50 shadow-md">
 
-        <div class="space-x-9 text-[#FFFFFF] text-2xl font-medium">
-            <a href="/" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+        <!-- Logo -->
+        <a href="/" class="font-logo font-extrabold text-2xl md:text-3xl tracking-[0.2em] uppercase text-[#FCA311]
+        hover:brightness-110 hover:drop-shadow-[0_0_15px_rgba(252,163,17,0.8)]">
+            JOYBOARD
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-9 text-white text-xl font-medium">
+
+            <a href="/" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 Home
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/about" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/about" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 About Us
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/rules" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/rules" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 How To Play
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/leaderboard" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/leaderboard" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 Leaderboard
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/contact" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/contact" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 Contact
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/news" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/news" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 News
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
-            <a href="/download" class="font-section relative inline-block text-white transition-transform duration-300 ease-in-out hover:text-[#DDA15E] hover:scale-105 hover:drop-shadow-[0_0_8px_#DDA15E] group">
+
+            <a href="/download" class="font-section relative group hover:text-[#DDA15E] hover:drop-shadow-[0_0_8px_#DDA15E]">
                 Download &#10515;
-                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#DDA15E] transition-all duration-500 group-hover:w-full"></span>
             </a>
+
         </div>
-        {% if user.is_authenticated%}
-            <div class="space-x-3 text-[#000000] text-lg font-medium">
-                <a href="/dashboard/" class="font-button px-3 py-1 bg-[#FCA311] hover:bg-[#fca211dd] hover:text-white rounded-tl-2xl rounded-br-2xl transition-colors duration-200 ease-in-out ">Dashboard</a>
-                <a href="/logout/" class="font-button px-3 py-1 bg-red-500 hover:bg-red-600 hover:text-white rounded-tl-2xl rounded-br-2xl transition-colors duration-200 ease-in-out">Logout</a>
-            </div>
-        {% else %}
-            <div class="space-x-3 text-[#000000] text-lg font-medium">
-                <a href="/login" class="font-button px-3 py-1 bg-[#E5E5E5] hover:bg-[#3A506B] hover:text-white rounded-tl-2xl rounded-br-2xl transition-colors duration-200 ease-in-out">Login</a>
-                <a href="/signup" class="font-button px-3 py-1 bg-[#FCA311] hover:bg-[#3A506B] hover:text-white rounded-tl-2xl rounded-br-2xl transition-colors duration-200 ease-in-out">SignUp</a>
-            </div>
-        {% endif %}
+
+        <!-- Desktop Auth Buttons -->
+        <div class="hidden md:flex space-x-3 text-lg font-medium">
+            {% if user.is_authenticated %}
+                <a href="/dashboard/" class="font-button px-3 py-1 bg-[#FCA311] hover:bg-[#fca211dd] rounded-tl-2xl rounded-br-2xl">
+                    Dashboard
+                </a>
+                <a href="/logout/" class="font-button px-3 py-1 bg-red-500 hover:bg-red-600 rounded-tl-2xl rounded-br-2xl text-white">
+                    Logout
+                </a>
+            {% else %}
+                <a href="/login" class="font-button px-3 py-1 bg-[#E5E5E5] hover:bg-[#3A506B] hover:text-white rounded-tl-2xl rounded-br-2xl">
+                    Login
+                </a>
+                <a href="/signup" class="font-button px-3 py-1 bg-[#FCA311] hover:bg-[#3A506B] hover:text-white rounded-tl-2xl rounded-br-2xl">
+                    SignUp
+                </a>
+            {% endif %}
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button onclick="toggleMenu()" class="md:hidden text-white text-3xl focus:outline-none">
+            ☰
+        </button>
+
     </nav>
+
+
+    <div id="mobileMenu" class="hidden bg-black text-white px-6 py-6 space-y-4 text-lg font-section md:hidden">
+
+        <a href="/" class="block hover:text-[#DDA15E]">Home</a>
+        <a href="/about" class="block hover:text-[#DDA15E]">About Us</a>
+        <a href="/rules" class="block hover:text-[#DDA15E]">How To Play</a>
+        <a href="/leaderboard" class="block hover:text-[#DDA15E]">Leaderboard</a>
+        <a href="/contact" class="block hover:text-[#DDA15E]">Contact</a>
+        <a href="/news" class="block hover:text-[#DDA15E]">News</a>
+        <a href="/download" class="block text-[#FCA311]">Download ↓</a>
+
+        <hr class="border-gray-700 my-4">
+
+        {% if user.is_authenticated %}
+            <a href="/dashboard/" class="block bg-[#FCA311] text-black px-4 py-2 rounded-lg">
+                Dashboard
+            </a>
+            <a href="/logout/" class="block bg-red-500 px-4 py-2 rounded-lg text-white">
+                Logout
+            </a>
+        {% else %}
+            <a href="/login" class="block bg-gray-200 text-black px-4 py-2 rounded-lg">
+                Login
+            </a>
+            <a href="/signup" class="block bg-[#FCA311] text-black px-4 py-2 rounded-lg">
+                Sign Up
+            </a>
+        {% endif %}
+
+    </div>
+
 
     <!-- Main Body -->
     <main class="p-0 m-0">
@@ -75,14 +134,20 @@
     <!-- Footer -->
     <footer class="bg-black text-white text-center py-5 font-section">
     <p class="text-[15px]">&copy; 2025 JOYBOARD. All rights reserved.</p>
-    <div class="flex justify-center space-x-4 mt-2 text-[15px]">
-        <a href="/privacy" class="hover:underline">Privacy Policy</a>
-        <a href="/terms" class="hover:underline">Terms & Conditions</a>
+    <div class="flex justify-center space-x-2 mt-2 text-[15px]">
+        <a href="/privacy" class="hover:underline">Privacy Policy</a><p>⌇</P>
+        <a href="/terms" class="hover:underline">Terms & Conditions</a><p>⌇</P>
         <a href="/contact" class="hover:underline">Contact</a>
     </div>
     </footer>
 
     <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        }
+    </script>
 
 </body>
 </html>
