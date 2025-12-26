@@ -27,7 +27,7 @@
 
 ## 📝 Overview
 
-**JOYBOARD** is an integrated gaming ecosystem combining a fast-paced 2D platformer, a real-time web dashboard, and a custom Arduino wireless controller. Players tackle handcrafted levels with smart challenges while competing through live leaderboards and detailed gameplay analytics. With seamless hardware-software integration, JOYBOARD delivers a unique, immersive, and competitive gaming experience.
+**JOYBOARD** is an **AI integrated** gaming ecosystem combining a fast-paced 2D platformer, a real-time web dashboard, and a custom Arduino wireless controller. Players tackle handcrafted levels with smart challenges while competing through live leaderboards and detailed gameplay analytics. With seamless hardware-software integration, JOYBOARD delivers a unique, immersive, and competitive gaming experience.
 
 ---
 
