@@ -196,10 +196,8 @@ def leaderboard_page(request):
     cached = cache.get(CACHE_KEY)
 
     if cached:
-        print("Cache HIT for leaderboard")
         leaderboard = json.loads(cached)
     else:
-        print("Cache MISS for leaderboard")
         records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
 
         # Bulk fetch all users and profiles
@@ -223,8 +221,7 @@ def leaderboard_page(request):
             })
 
         # Cache as serialized JSON
-        cache.set(CACHE_KEY, json.dumps(leaderboard), timeout=300)  # 5 min
-        print("Leaderboard cached")
+        cache.set(CACHE_KEY, json.dumps(leaderboard), timeout=600)  # 10 min
 
     return render(request, 'leaderboard.html', {'leaderboard': leaderboard})
 

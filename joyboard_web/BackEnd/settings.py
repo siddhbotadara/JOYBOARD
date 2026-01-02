@@ -160,7 +160,6 @@ CACHES = {
     }
 }
 
-
 # Getting Download Link
 SUPABASE_SIGNED_URL = os.getenv('SUPABASE_SIGNED_URL')
 
