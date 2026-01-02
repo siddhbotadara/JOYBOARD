@@ -193,12 +193,13 @@ def set_description(request):
     })
 
 def leaderboard_page(request):
-    # Try fetching leaderboard from Redis cache
-    leaderboard = cache.get("leaderboard_cache")
+    CACHE_KEY = "leaderboard_cache"
+    leaderboard = cache.get(CACHE_KEY)
 
     if leaderboard:
-        pass
+        logger.info("Cache HIT for leaderboard")
     else:
+        logger.info("Cache MISS for leaderboard")
         records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
 
         leaderboard = []
@@ -214,8 +215,7 @@ def leaderboard_page(request):
                 'input_used': record.input_used,
             })
 
-        # Save result to cache for future requests
-        cache.set("leaderboard_cache", leaderboard, timeout=60)  # cache for 1 minute
+        cache.set(CACHE_KEY, leaderboard, timeout=60)
 
     return render(request, 'leaderboard.html', {'leaderboard': leaderboard})
 
@@ -402,7 +402,7 @@ def submit_score(request):
     )
 
     # After saving a new PlayerRecord
-    cache.delete("leaderboard_data")  # next request will recompute leaderboard
+    cache.delete("leaderboard_cache")  # next request will recompute leaderboard
 
     return Response({'message': message}, status=201)
 
