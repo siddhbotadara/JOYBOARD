@@ -146,6 +146,21 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Tell WhiteNoise to use compressed manifest storage for caching
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+# Reddis Cache For Leaderboard
+REDIS_URL = os.environ.get("REDIS_URL")
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": REDIS_URL,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
 # Getting Download Link
 SUPABASE_SIGNED_URL = os.getenv('SUPABASE_SIGNED_URL')
 

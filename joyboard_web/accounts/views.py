@@ -13,6 +13,11 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from django.http import StreamingHttpResponse, Http404
+from django.core.cache import cache
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def index(request):
     return render(request, 'index.html')
@@ -188,20 +193,29 @@ def set_description(request):
     })
 
 def leaderboard_page(request):
-    records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
+    # Try fetching leaderboard from Redis cache
+    leaderboard = cache.get("leaderboard_cache")
 
-    leaderboard = []
-    for record in records:
-        user = User.objects.filter(username=record.username).first()
-        profile = UserProfile.objects.filter(user=user).first() if user else None
+    if leaderboard:
+        pass
+    else:
+        records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
 
-        leaderboard.append({
-            'username': record.username,
-            'description': profile.description if profile else "",
-            'time_taken': record.time_taken,
-            'level_completed': record.level_completed,
-            'input_used': record.input_used,
-        })
+        leaderboard = []
+        for record in records:
+            user = User.objects.filter(username=record.username).first()
+            profile = UserProfile.objects.filter(user=user).first() if user else None
+
+            leaderboard.append({
+                'username': record.username,
+                'description': profile.description if profile else "",
+                'time_taken': record.time_taken,
+                'level_completed': record.level_completed,
+                'input_used': record.input_used,
+            })
+
+        # Save result to cache for future requests
+        cache.set("leaderboard_cache", leaderboard, timeout=60)  # cache for 1 minute
 
     return render(request, 'leaderboard.html', {'leaderboard': leaderboard})
 
@@ -386,6 +400,9 @@ def submit_score(request):
         time_taken=time_taken,
         level_completed=level_completed,
     )
+
+    # After saving a new PlayerRecord
+    cache.delete("leaderboard_data")  # next request will recompute leaderboard
 
     return Response({'message': message}, status=201)
 
