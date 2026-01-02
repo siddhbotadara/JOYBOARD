@@ -14,6 +14,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import StreamingHttpResponse, Http404
 from django.core.cache import cache
+import json
 
 
 def index(request):
@@ -189,20 +190,29 @@ def set_description(request):
         'user_profile': profile
     })
 
+
 def leaderboard_page(request):
     CACHE_KEY = "leaderboard_cache"
-    leaderboard = cache.get(CACHE_KEY)
+    cached = cache.get(CACHE_KEY)
 
-    if leaderboard:
+    if cached:
         print("Cache HIT for leaderboard")
+        leaderboard = json.loads(cached)
     else:
         print("Cache MISS for leaderboard")
         records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
 
+        # Bulk fetch all users and profiles
+        usernames = [r.username for r in records]
+        users = User.objects.filter(username__in=usernames)
+        user_map = {u.username: u for u in users}
+        profiles = UserProfile.objects.filter(user__in=users)
+        profile_map = {p.user.username: p for p in profiles}
+
         leaderboard = []
         for record in records:
-            user = User.objects.filter(username=record.username).first()
-            profile = UserProfile.objects.filter(user=user).first() if user else None
+            user = user_map.get(record.username)
+            profile = profile_map.get(record.username) if user else None
 
             leaderboard.append({
                 'username': record.username,
@@ -212,7 +222,9 @@ def leaderboard_page(request):
                 'input_used': record.input_used,
             })
 
-        cache.set(CACHE_KEY, leaderboard, timeout=60)
+        # Cache as serialized JSON
+        cache.set(CACHE_KEY, json.dumps(leaderboard), timeout=300)  # 5 min
+        print("Leaderboard cached")
 
     return render(request, 'leaderboard.html', {'leaderboard': leaderboard})
 
