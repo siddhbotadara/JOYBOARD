@@ -14,9 +14,6 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import StreamingHttpResponse, Http404
 from django.core.cache import cache
-import logging
-
-logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -197,9 +194,9 @@ def leaderboard_page(request):
     leaderboard = cache.get(CACHE_KEY)
 
     if leaderboard:
-        logger.info("Cache HIT for leaderboard")
+        print("Cache HIT for leaderboard")
     else:
-        logger.info("Cache MISS for leaderboard")
+        print("Cache MISS for leaderboard")
         records = PlayerRecord.objects.all().order_by('-level_completed', 'time_taken')
 
         leaderboard = []
